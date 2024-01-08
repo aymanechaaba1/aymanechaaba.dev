@@ -15,12 +15,12 @@ function ProjectsPagination({ totalPages }: { totalPages: number }) {
   const newSearchParams = new URLSearchParams();
 
   return (
-    <div className="flex items-center justify-between lg:max-w-96 mx-auto my-5">
+    <div className="flex items-center justify-between mx-auto my-5">
       {Number(currentPage) > 1 ? (
-        <div className="p-1 rounded-lg hover:bg-gray-900 flex justify-center items-center border">
+        <div className="p-1 rounded-lg flex justify-center items-center border">
           <ArrowLeft
             size={20}
-            className="text-gray-200 cursor-pointer"
+            className="dark:text-gray-200 text-gray-800 cursor-pointer"
             onClick={() => {
               newSearchParams.set('page', `${Number(currentPage) - 1}`);
               sortBy && newSearchParams.set('sort', sortBy);
@@ -35,10 +35,10 @@ function ProjectsPagination({ totalPages }: { totalPages: number }) {
 
       <span className="font-bold">{currentPage}</span>
       {Number(currentPage) !== totalPages ? (
-        <div className="p-1 rounded-lg hover:bg-gray-900 flex justify-center items-center border">
+        <div className="p-1 rounded-lg flex justify-center items-center border">
           <ArrowRight
             size={20}
-            className="text-gray-200 cursor-pointer"
+            className="dark:text-gray-200 text-gray-800 cursor-pointer"
             onClick={() => {
               newSearchParams.set('page', `${Number(currentPage) + 1}`);
               sortBy && newSearchParams.set('sort', sortBy);

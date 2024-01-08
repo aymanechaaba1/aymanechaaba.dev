@@ -13,7 +13,7 @@ function ProjectsPage({
 }) {
   return (
     <>
-      <h1 className="text-3xl mt-3">Projects</h1>
+      <h1 className="text-3xl mt-3 font-medium">Projects</h1>
       <Suspense fallback={<ProjectsSkeleton />}>
         <Projects
           sort={searchParams?.sort}

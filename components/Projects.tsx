@@ -15,6 +15,7 @@ import RepoThumbnail from './RepoThumbnail';
 import RepoPulls from './RepoPulls';
 import ProjectsPagination from './ProjectsPagination';
 import RepoLanguages from './RepoLanguages';
+import { Card } from './ui/card';
 
 async function Projects({
   sort,
@@ -33,13 +34,35 @@ async function Projects({
     per_page: Number(per_page),
   });
 
-  console.log(repos);
-
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-10">
-        {repos.map((repo) => (
-          <div key={repo.id} className="border-2 rounded-lg p-3">
+      <div className="flex items-center justify-end">
+        <div className="flex items-center gap-3">
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <Github size={18} className="text-purple-500" />
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="text-xs">repo</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <Youtube size={18} className="text-purple-500" />
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="text-xs">livestream</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
+        {repos?.map((repo) => (
+          <Card key={repo.id} className="p-3">
             <Suspense
               fallback={
                 <div className="w-full h-40 dark:bg-gray-900 bg-gray-200 rounded-lg animate-pulse" />
@@ -50,19 +73,9 @@ async function Projects({
             <div className="flex items-center justify-between">
               <p className="text-xl font-medium">{repo.name}</p>
               <div className="flex items-center gap-2">
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger>
-                      <Link href={repo.html_url}>
-                        <Github size={18} className="text-purple-500" />
-                      </Link>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p className="text-xs">repo</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-
+                <Link href={repo.html_url}>
+                  <Github size={18} className="text-purple-500" />
+                </Link>
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger>
@@ -71,7 +84,7 @@ async function Projects({
                       </Link>
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p className="text-xs">livestream</p>
+                      <p className="text-xs">500k views</p>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
@@ -101,13 +114,13 @@ async function Projects({
               {repo.topics?.map((topic, i) => (
                 <span
                   key={i}
-                  className="text-[0.7rem] align-middle text-center py-1 px-2 rounded-lg dark:bg-gray-800 bg-gray-100 text-white"
+                  className="text-[0.7rem] align-middle text-center py-1 px-2 rounded-lg dark:bg-gray-800 bg-gray-800 text-white"
                 >
                   {topic}
                 </span>
               ))}
             </div>
-          </div>
+          </Card>
         ))}
       </div>
       <ProjectsPagination totalPages={repos.length} />
