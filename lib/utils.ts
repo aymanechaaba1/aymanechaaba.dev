@@ -130,3 +130,34 @@ export const fetchRepo = async (options: RepoParameters) => {
   );
   const data: RepoResponse['data'] = await res.json();
 };
+
+export const formatAmount = ({
+  amount,
+  options,
+}: {
+  amount: number;
+  options?: Intl.NumberFormatOptions;
+}) => new Intl.NumberFormat('en-US', options).format(amount);
+
+export const formatBudget = (budget: string) =>
+  budget
+    .split('-')
+    .map((amount) =>
+      formatAmount({
+        amount: +amount,
+        options: {
+          currency: 'USD',
+          style: 'currency',
+        },
+      })
+    )
+    .join('-');
+
+export const formatLastBudget = (lastBudget: string) =>
+  formatAmount({
+    amount: +lastBudget.slice(0, -1),
+    options: {
+      currency: 'USD',
+      style: 'currency',
+    },
+  }) + '+';

@@ -14,6 +14,10 @@ const navlinks = [
     path: '/blog',
     label: 'blog',
   },
+  {
+    path: '/contact',
+    label: 'contact',
+  },
 ];
 
 function Navbar() {

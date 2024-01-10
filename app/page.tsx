@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 const skills = [
-  'NextJS, TailwindCSS, Typescript, SQL, Firebase, tRPC, Prisma, Zustand, NextAuth',
+  'NextJS, TailwindCSS, Typescript, SQL, Firebase, tRPC, Prisma, Redux, Zustand, NextAuth',
 ];
 
 const hobbies = [

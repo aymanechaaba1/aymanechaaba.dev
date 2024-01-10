@@ -5,6 +5,7 @@ import { Inter as FontSans } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
 import ReactIcon from '@/components/icons/ReactIcon';
+import { Toaster } from '@/components/ui/sonner';
 
 export const fontSans = FontSans({
   subsets: ['latin'],
@@ -23,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'min-h-screen bg-background font-sans antialiased flex flex-col p-4 max-w-3xl mx-auto',
+          'min-h-screen bg-background font-sans antialiased flex flex-col p-4',
           fontSans.variable
         )}
       >
@@ -34,7 +35,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 lg:max-w-6xl lg:mx-auto">{children}</main>
+          <Toaster />
           <ReactIcon />
         </ThemeProvider>
       </body>
