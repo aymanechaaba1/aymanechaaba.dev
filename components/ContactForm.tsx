@@ -68,7 +68,10 @@ function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    toast(state?.email?.message);
+    if (state?.email) {
+      toast(state?.email?.message);
+    }
+
     state?.email?.ok && formRef.current?.reset();
   }, [state]);
 
@@ -154,8 +157,10 @@ function ContactForm() {
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              {Object.entries(projectsStartDates).map(([key, value]) => (
-                <SelectItem value={key}>{value}</SelectItem>
+              {Object.entries(projectsStartDates).map(([key, value], i) => (
+                <SelectItem key={i} value={key}>
+                  {value}
+                </SelectItem>
               ))}
             </SelectGroup>
           </SelectContent>
@@ -180,8 +185,10 @@ function ContactForm() {
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              {budgets.slice(0, -1).map((budget) => (
-                <SelectItem value={budget}>{formatBudget(budget)}</SelectItem>
+              {budgets.slice(0, -1).map((budget, i) => (
+                <SelectItem key={i} value={budget}>
+                  {formatBudget(budget)}
+                </SelectItem>
               ))}
               <SelectItem value={budgets.at(-1)!}>
                 {formatLastBudget(budgets.at(-1)!)}

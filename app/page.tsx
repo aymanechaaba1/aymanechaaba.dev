@@ -1,7 +1,12 @@
+import Testimonials from '@/components/Testimonials';
+import TestimonialsSkeleton from '@/components/skeletons/TestimonialsSkeleton';
+import { Separator } from '@/components/ui/separator';
+import { Loader2 } from 'lucide-react';
 import Image from 'next/image';
+import { Suspense } from 'react';
 
 const skills = [
-  'NextJS, TailwindCSS, Typescript, SQL, Firebase, tRPC, Prisma, Redux, Zustand, NextAuth',
+  'NextJS, TailwindCSS, Typescript, SQL, Firebase, tRPC, Prisma, Redux, Zustand, NextAuth, shadcn',
 ];
 
 const hobbies = [
@@ -24,14 +29,17 @@ export default function Home() {
           className="rounded-lg mb-3"
         />
         <h1 className="text-xl font-medium mb-2">
-          Hey, I'm Aymane Chaaba 👋 <br />
+          Hey, I&apos;m Aymane Chaaba 👋 <br />
         </h1>
         <div>
-          <p>I'm a Web Developer from Morocco 🇲🇦</p>
+          <p className="text-base">I&apos;m a Web Developer from Morocco 🇲🇦</p>
         </div>
       </section>
+
       <section>
-        <h1 className="font-medium  text-xl">Skills</h1>
+        <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Skills
+        </h3>
         <ul>
           {skills.map((skill, i) => (
             <li key={i} className="text-sm">
@@ -40,8 +48,11 @@ export default function Home() {
           ))}
         </ul>
       </section>
+
       <section>
-        <h1 className="font-medium  text-xl">Hobbies</h1>
+        <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Hobbies
+        </h3>
         <div className="space-x-2 divide-x">
           {hobbies.map((hobby, i) => (
             <span key={i} className="pl-2 first:pl-0 text-sm md:text-base">
@@ -49,6 +60,15 @@ export default function Home() {
             </span>
           ))}
         </div>
+      </section>
+      <Separator />
+      <section>
+        <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Testimonials
+        </h3>
+        <Suspense fallback={<TestimonialsSkeleton />}>
+          <Testimonials />
+        </Suspense>
       </section>
     </div>
   );
