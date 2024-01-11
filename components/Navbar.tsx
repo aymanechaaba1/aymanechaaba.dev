@@ -25,7 +25,11 @@ function Navbar() {
     <nav className="flex items-center justify-between">
       <div className="flex items-center gap-4">
         {navlinks.map((navlink) => (
-          <Link key={navlink.path} href={navlink.path}>
+          <Link
+            key={navlink.path}
+            href={navlink.path}
+            className="scroll-m-20 tracking-tight font-semibold"
+          >
             {navlink.label}
           </Link>
         ))}
