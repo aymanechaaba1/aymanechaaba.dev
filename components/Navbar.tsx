@@ -22,7 +22,7 @@ const navlinks = [
 
 function Navbar() {
   return (
-    <nav className="flex items-center justify-between">
+    <nav className="flex items-center justify-end gap-5">
       <div className="flex items-center gap-4">
         {navlinks.map((navlink) => (
           <Link
