@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
 import ReactIcon from '@/components/icons/ReactIcon';
 import { Toaster } from '@/components/ui/sonner';
+import Footer from '@/components/Footer';
 
 export const fontSans = FontSans({
   subsets: ['latin'],
@@ -36,8 +37,8 @@ export default function RootLayout({
         >
           <Navbar />
           <main className="flex-1 lg:max-w-6xl lg:mx-auto">{children}</main>
+          <Footer />
           <Toaster />
-          <ReactIcon />
         </ThemeProvider>
       </body>
     </html>
