@@ -1,12 +1,11 @@
 import Testimonials from '@/components/Testimonials';
 import TestimonialsSkeleton from '@/components/skeletons/TestimonialsSkeleton';
 import { Separator } from '@/components/ui/separator';
-import { Loader2 } from 'lucide-react';
 import Image from 'next/image';
 import { Suspense } from 'react';
 
 const skills = [
-  'NextJS, TailwindCSS, Typescript, SQL, Firebase, tRPC, Prisma, Redux, Zustand, NextAuth, shadcn',
+  'NextJS, TailwindCSS, Typescript, SQL, Firebase, tRPC, Prisma, Drizzle, Redux, Zustand, NextAuth, shadcn',
 ];
 
 const hobbies = [
@@ -28,12 +27,13 @@ export default function Home() {
           height={100}
           className="rounded-lg mb-3"
         />
-        <h1 className="text-xl font-medium mb-2">
+        <h1 className="text-xl font-medium">
           Hey, I&apos;m Aymane Chaaba 👋 <br />
         </h1>
-        <div>
-          <p className="text-base">I&apos;m a Web Developer from Morocco 🇲🇦</p>
-        </div>
+        <p className="text-sm tracking-tight">
+          I&apos;m a <span className="font-semibold">Web Developer</span> from
+          Morocco 🇲🇦
+        </p>
       </section>
 
       <section>

@@ -4,16 +4,22 @@ import { ThemeProvider } from '@/components/providers/theme-provider';
 import { Inter as FontSans } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
-import ReactIcon from '@/components/icons/ReactIcon';
 import { Toaster } from '@/components/ui/sonner';
 import Footer from '@/components/Footer';
+import { GeistSans } from 'geist/font/sans';
 
 export const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',
 });
 export const metadata: Metadata = {
-  title: 'Aymane Chaaba',
+  title: 'aymanechaaba.dev',
+  description: 'NextJS ReactJS Developer',
+  authors: [
+    {
+      name: 'Aymane Chaaba',
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -26,7 +32,7 @@ export default function RootLayout({
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased flex flex-col p-4',
-          fontSans.variable
+          GeistSans.className
         )}
       >
         <ThemeProvider

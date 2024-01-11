@@ -36,30 +36,6 @@ async function Projects({
 
   return (
     <>
-      <div className="flex items-center justify-end">
-        <div className="flex items-center gap-3">
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger>
-                <Github size={18} className="text-purple-500" />
-              </TooltipTrigger>
-              <TooltipContent>
-                <p className="text-xs">repo</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger>
-                <Youtube size={18} className="text-purple-500" />
-              </TooltipTrigger>
-              <TooltipContent>
-                <p className="text-xs">livestream</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-        </div>
-      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
         {repos?.map((repo) => (
           <Card key={repo.id} className="p-3">

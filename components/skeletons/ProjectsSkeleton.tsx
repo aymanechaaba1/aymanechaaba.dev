@@ -2,7 +2,7 @@ import RepoLanguagesSkeleton from './RepoLanguagesSkeleton';
 
 function ProjectsSkeleton() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-5 max-w-4xl mx-auto">
       {[...Array(5).keys()].map((i) => (
         <div
           key={i}
