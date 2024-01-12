@@ -161,3 +161,8 @@ export const formatLastBudget = (lastBudget: string) =>
       style: 'currency',
     },
   }) + '+';
+
+export const getFetchUrl = () =>
+  process.env.VERCEL_ENV === 'production' || 'preview'
+    ? `https://${process.env.VERCEL_URL}`
+    : 'http://localhost:3000';
