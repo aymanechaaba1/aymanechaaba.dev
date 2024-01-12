@@ -9,6 +9,7 @@ import Footer from '@/components/Footer';
 import { GeistSans } from 'geist/font/sans';
 import { siteConfig } from '@/config/siteConfig';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const fontSans = FontSans({
   subsets: ['latin'],
@@ -89,6 +90,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1 lg:max-w-6xl lg:mx-auto">{children}</main>
           <Analytics />
+          <SpeedInsights />
           <Footer />
           <Toaster />
         </ThemeProvider>
