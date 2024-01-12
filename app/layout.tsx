@@ -8,6 +8,7 @@ import { Toaster } from '@/components/ui/sonner';
 import Footer from '@/components/Footer';
 import { GeistSans } from 'geist/font/sans';
 import { siteConfig } from '@/config/siteConfig';
+import { Analytics } from '@vercel/analytics/react';
 
 export const fontSans = FontSans({
   subsets: ['latin'],
@@ -87,6 +88,7 @@ export default function RootLayout({
         >
           <Navbar />
           <main className="flex-1 lg:max-w-6xl lg:mx-auto">{children}</main>
+          <Analytics />
           <Footer />
           <Toaster />
         </ThemeProvider>
