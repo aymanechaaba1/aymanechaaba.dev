@@ -37,7 +37,8 @@ function Navbar() {
             className={cn(
               'scroll-m-20 tracking-tight font-semibold text-gray-500',
               {
-                'text-white': navlink.path.split('?').at(0) === pathname,
+                'dark:text-white text-gray-900':
+                  navlink.path.split('?').at(0) === pathname,
               }
             )}
           >
