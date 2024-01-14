@@ -46,9 +46,6 @@ const FETCH_PARAMS = {
     Authorization: `Bearer ${process.env.GITHUB_API_TOKEN}`,
     'X-GitHub-Api-Version': '2022-11-28',
   },
-  next: {
-    revalidate: 60,
-  },
 };
 
 export const fetchRepos = async (options: listUserReposParams) => {
