@@ -62,8 +62,17 @@ const initState: InitState = {
   },
 };
 
-function ContactForm() {
+function SendButton() {
   const { pending } = useFormStatus();
+
+  return (
+    <Button type="submit" disabled={pending}>
+      {pending ? 'Sending...' : 'Send'}
+    </Button>
+  );
+}
+
+function ContactForm() {
   const [state, formAction] = useFormState(submitForm, initState);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -219,9 +228,7 @@ function ContactForm() {
         )}
       </div>
       <div />
-      <Button type="submit" disabled={pending}>
-        {pending ? 'Sending...' : 'Send'}
-      </Button>
+      <SendButton />
     </form>
   );
 }
