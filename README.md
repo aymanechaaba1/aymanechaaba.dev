@@ -1,12 +1,5 @@
 # aymanechaaba.dev Main Wesbite of my Portfolio
 
-**Framework** | NextJS
-**Styling** | Tailwiind
-**Type Checking** | Typescript
-**Form Validation** | Zod
-**Email** | Resend
-**Email Styling** | react-email
-
 I enjoyed building this portfolio website with NextJS, Tailwind & Typescript.
 
 - 🙏 Thanks **shadcn** for helping me in the design aspect.
