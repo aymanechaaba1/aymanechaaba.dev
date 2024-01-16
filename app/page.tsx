@@ -1,6 +1,8 @@
 import Testimonials from '@/components/Testimonials';
 import TestimonialsSkeleton from '@/components/skeletons/TestimonialsSkeleton';
 import { Separator } from '@/components/ui/separator';
+import { ErrorBoundary } from 'react-error-boundary';
+import FallbackError from '@/components/FallbackError';
 import Image from 'next/image';
 import { Suspense } from 'react';
 
@@ -66,9 +68,11 @@ export default function Home() {
         <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
           Testimonials
         </h3>
-        <Suspense fallback={<TestimonialsSkeleton />}>
-          <Testimonials />
-        </Suspense>
+        <ErrorBoundary fallbackRender={FallbackError}>
+          <Suspense fallback={<TestimonialsSkeleton />}>
+            <Testimonials />
+          </Suspense>
+        </ErrorBoundary>
       </section>
     </div>
   );
