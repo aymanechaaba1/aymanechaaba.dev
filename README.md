@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# aymanechaaba.dev Main Wesbite of my Portfolio
 
-## Getting Started
+**Framework** | NextJS
+**Styling** | Tailwiind
+**Type Checking** | Typescript
+**Form Validation** | Zod
+**Email** | Resend
+**Email Styling** | react-email
 
-First, run the development server:
+I enjoyed building this portfolio website with NextJS, Tailwind & Typescript.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 🙏 Thanks **shadcn** for helping me in the design aspect.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🙏 Thanks **vercel** for the awesome products you provide to developers (Geist looks so beautiful ♥️).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 🙏 Thanks **React** team for the awesome APIs. (Contact form is blazing fast ⚡️).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- 🙏 Thanks **resend** team (My contact form has no meaning without you).
 
-## Learn More
+- 🙏 Thanks **zod**, **cloudinary** and all the APIs that revolutionized the web industry.
 
-To learn more about Next.js, take a look at the following resources:
+**My website looks epic and I'm so excited to add more enhancements as new features come in.**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Home:** Introduction, Skills, Hobbies, Testimonials
+- **Projects:** list of projects that I'm continuously working on
+- **Blog:** Coming later...
+- **Contact:** Contact form to work on a project
 
-## Deploy on Vercel
+### Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- ✔️ Dark/Light Mode
+- ✔️ No JavaScript needed to contact me
+- ✔️ **Responsive** design (Web & Mobile)
+- ✔️ Skeleton loaders
+- ✔️ Streaming data
+- ✔️ Toast notifications
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+As always, Happy Coding 😊
