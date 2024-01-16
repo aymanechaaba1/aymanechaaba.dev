@@ -16,6 +16,7 @@ import RepoPulls from './RepoPulls';
 import ProjectsPagination from './ProjectsPagination';
 import RepoLanguages from './RepoLanguages';
 import { Card } from './ui/card';
+import { unstable_noStore as noStore } from 'next/cache';
 
 async function Projects({
   sort,
@@ -26,6 +27,7 @@ async function Projects({
   page?: string;
   per_page?: string;
 }) {
+  noStore();
   // fetch repos
   const repos = await fetchRepos({
     username: OWNER,
