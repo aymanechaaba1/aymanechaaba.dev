@@ -5,6 +5,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import FallbackError from '@/components/FallbackError';
 import Image from 'next/image';
 import { Suspense } from 'react';
+import DownloadResumeBtn from '@/components/DownloadResumeBtn';
 
 const skills = [
   'NextJS, TailwindCSS, Typescript, SQL, Firebase, tRPC, Prisma, Drizzle, Redux, Zustand, NextAuth, shadcn',
@@ -33,11 +34,13 @@ export default function Home() {
           Hey, I&apos;m Aymane Chaaba 👋 <br />
         </h1>
         <p className="text-sm tracking-tight">
-          I&apos;m a <span className="font-semibold">Web Developer</span> from
+          <span className="font-semibold">Javascript Developer</span> from
           Morocco 🇲🇦
         </p>
       </section>
 
+      <DownloadResumeBtn />
+      <Separator />
       <section>
         <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
           Skills
