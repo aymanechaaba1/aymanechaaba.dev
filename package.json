@@ -24,6 +24,7 @@
     "cloudinary": "^2.0.0-rc",
     "clsx": "^2.1.0",
     "embla-carousel-react": "^8.0.0-rc19",
+    "firebase": "^10.8.0",
     "geist": "^1.2.0",
     "lucide-react": "^0.303.0",
     "next": "14.0.4",
