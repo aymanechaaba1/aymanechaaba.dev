@@ -7,20 +7,8 @@ import { cn } from '@/lib/utils';
 
 const navlinks = [
   {
-    path: '/',
-    label: 'home',
-  },
-  {
-    path: '/projects?sort=updated&per_page=5&page=1',
-    label: 'projects',
-  },
-  {
-    path: '/blog',
-    label: 'blog',
-  },
-  {
-    path: '/contact',
-    label: 'contact',
+    path: '/projects',
+    label: 'Projects',
   },
 ];
 
