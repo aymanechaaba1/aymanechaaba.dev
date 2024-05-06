@@ -1,108 +1,33 @@
-import { OWNER, fetchRepos } from '@/lib/utils';
-import { Eye, GitFork, Github, Loader2, Star, Youtube } from 'lucide-react';
-import { Suspense } from 'react';
-import RepoLanguagesSkeleton from './skeletons/RepoLanguagesSkeleton';
-import Link from 'next/link';
+import { v4 as uuidv4 } from 'uuid';
+import { RiNextjsFill } from 'react-icons/ri';
+import ProjectPreview from './ProjectPreview';
+import { Project } from '@/types';
 
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
+const projects: Project[] = [
+  {
+    id: uuidv4(),
+    name: 'Profans',
+    description: 'Buy tickets Online right From your Bed.',
+    live_url: 'https://profans.pro',
+    logo: 'https://profans.pro/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Ftadakirnet-clone-ae832.appspot.com%2Fo%2Ftadakirnet-clone%2520logo2.png%3Falt%3Dmedia%26token%3D1518680c-5586-4e8f-a44a-d8fb1aadf408&w=256&q=75',
+    repo: 'https://github.com/aymanechaaba1/profans',
+    stack: [
+      {
+        name: 'NextJS',
+        icon: <RiNextjsFill />,
+      },
+    ],
+    thumbnail: '',
+  },
+];
 
-import RepoThumbnail from './RepoThumbnail';
-import RepoPulls from './RepoPulls';
-import ProjectsPagination from './ProjectsPagination';
-import RepoLanguages from './RepoLanguages';
-import { Card } from './ui/card';
-import { unstable_noStore as noStore } from 'next/cache';
-
-async function Projects({
-  sort,
-  page,
-  per_page,
-}: {
-  sort?: 'updated' | 'created' | 'pushed' | 'full_name' | undefined;
-  page?: string;
-  per_page?: string;
-}) {
-  noStore();
-  // fetch repos
-  const repos = await fetchRepos({
-    username: OWNER,
-    sort,
-    page: Number(page),
-    per_page: Number(per_page),
-  });
-
+function Projects() {
   return (
-    <>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
-        {repos?.map((repo) => (
-          <Card key={repo.id} className="p-3">
-            <Suspense
-              fallback={
-                <div className="w-full h-40 dark:bg-gray-900 bg-gray-200 rounded-lg animate-pulse" />
-              }
-            >
-              <RepoThumbnail tag={repo.name} />
-            </Suspense>
-            <div className="flex items-center justify-between">
-              <p className="text-xl font-medium">{repo.name}</p>
-              <div className="flex items-center gap-2">
-                <Link href={repo.html_url}>
-                  <Github size={18} className="text-purple-500" />
-                </Link>
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger>
-                      <Link href={``}>
-                        <Youtube size={18} className="text-purple-500" />
-                      </Link>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p className="text-xs">500k views</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </div>
-            </div>
-            <div className="flex items-center justify-between mt-3">
-              <div className="flex items-center gap-3">
-                <Star size={18} />
-                <p>{repo.stargazers_count}</p>
-              </div>
-              <Suspense fallback={<Loader2 className="animate-spin" />}>
-                <RepoPulls repo={repo.name} />
-              </Suspense>
-              <div className="flex items-center gap-3">
-                <GitFork size={18} />
-                <p>{repo.forks_count}</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <Eye size={18} />
-                <p>{repo.watchers_count}</p>
-              </div>
-            </div>
-            <Suspense fallback={<RepoLanguagesSkeleton />}>
-              <RepoLanguages repo={repo.name} />
-            </Suspense>
-            <div className="flex items-center flex-wrap gap-3 mt-3">
-              {repo.topics?.map((topic, i) => (
-                <span
-                  key={i}
-                  className="text-[0.7rem] align-middle text-center py-1 px-2 rounded-lg dark:bg-gray-800 bg-gray-800 text-white"
-                >
-                  {topic}
-                </span>
-              ))}
-            </div>
-          </Card>
-        ))}
-      </div>
-      <ProjectsPagination totalPages={repos.length} />
-    </>
+    <div>
+      {projects.map((project) => (
+        <ProjectPreview key={project.id} project={project} />
+      ))}
+    </div>
   );
 }
 
