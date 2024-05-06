@@ -42,10 +42,6 @@ export const metadata: Metadata = {
     },
   ],
   creator: 'aymane chaaba',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -67,6 +63,7 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
+  metadataBase: new URL('https://aymanechaaba.vercel.app'),
 };
 
 export default function RootLayout({
