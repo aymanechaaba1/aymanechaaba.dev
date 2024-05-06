@@ -1,6 +1,5 @@
 'use client';
 
-import { submitForm } from '@/app/_actions';
 import { Label } from './ui/label';
 import { Input } from './ui/input';
 import {
@@ -18,6 +17,7 @@ import { Button } from './ui/button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { useEffect, useRef } from 'react';
 import { toast } from 'sonner';
+import { submitForm } from '@/actions/submitForm';
 
 export const projectsStartDates = {
   asap: 'as soon as possible',
@@ -34,34 +34,6 @@ export const budgets = [
   '10000+',
 ] as const;
 
-export type InitState = {
-  email?: {
-    ok: boolean;
-    message: string;
-  };
-  errors?: {
-    firstname?: string[] | undefined;
-    lastname?: string[] | undefined;
-    company_name?: string[] | undefined;
-    email?: string[] | undefined;
-    project_start_date?: string[] | undefined;
-    budget?: string[] | undefined;
-    brief_description?: string[] | undefined;
-  };
-};
-
-const initState: InitState = {
-  errors: {
-    firstname: undefined,
-    lastname: undefined,
-    company_name: undefined,
-    email: undefined,
-    project_start_date: undefined,
-    budget: undefined,
-    brief_description: undefined,
-  },
-};
-
 function SendButton() {
   const { pending } = useFormStatus();
 
@@ -73,7 +45,7 @@ function SendButton() {
 }
 
 function ContactForm() {
-  const [state, formAction] = useFormState(submitForm, initState);
+  const [state, formAction] = useFormState(submitForm, null);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {

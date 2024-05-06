@@ -8,3 +8,19 @@ export type SiteConfig = {
     github: string;
   };
 };
+
+type Stack = {
+  name: string;
+  icon: ReactNode;
+};
+
+export type Project = {
+  id: string;
+  name: string;
+  description: string;
+  logo: string;
+  thumbnail: string;
+  stack: Stack[];
+  repo: string;
+  live_url: string;
+};

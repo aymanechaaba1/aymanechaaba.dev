@@ -10,6 +10,7 @@ import { GeistSans } from 'geist/font/sans';
 import { siteConfig } from '@/config/siteConfig';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import './(css)/alert.css';
 
 export const fontSans = FontSans({
   subsets: ['latin'],
@@ -41,10 +42,6 @@ export const metadata: Metadata = {
     },
   ],
   creator: 'aymane chaaba',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -66,6 +63,7 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
+  metadataBase: new URL('https://aymanechaaba.vercel.app'),
 };
 
 export default function RootLayout({
@@ -88,10 +86,12 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="flex-1 lg:max-w-6xl lg:mx-auto">{children}</main>
+          <main className="flex-1 prose prose-headings:font-semibold prose-headings:text-black dark:prose-headings:text-white dark:prose-p:text-white dark:prose-a:text-white dark:prose-strong:text-white dark:prose-h2:text-white">
+            {children}
+          </main>
+          <Footer />
           <Analytics />
           <SpeedInsights />
-          <Footer />
           <Toaster />
         </ThemeProvider>
       </body>
