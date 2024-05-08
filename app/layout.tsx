@@ -87,7 +87,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="flex-1 container min-h-screen">{children}</main>
+          <main className="flex-1 container">{children}</main>
           <Footer />
           <Analytics />
           <SpeedInsights />
