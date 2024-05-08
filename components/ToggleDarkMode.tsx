@@ -23,8 +23,18 @@ export function ToggleDarkMode() {
   }, []);
 
   return isClient && theme === 'dark' ? (
-    <FaCloudMoon className="cursor-pointer" onClick={() => setTheme('light')} />
+    <div className="zinc-ring-shadow p-2 rounded-full">
+      <FaCloudMoon
+        className="cursor-pointer dark:text-zinc-200"
+        onClick={() => setTheme('light')}
+      />
+    </div>
   ) : (
-    <MdLightMode className="cursor-pointer" onClick={() => setTheme('dark')} />
+    <div className="zinc-ring-shadow p-2 rounded-full">
+      <MdLightMode
+        className="cursor-pointer text-zinc-800"
+        onClick={() => setTheme('dark')}
+      />
+    </div>
   );
 }

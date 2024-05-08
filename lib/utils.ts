@@ -163,3 +163,9 @@ export const getFetchUrl = () =>
   process.env.VERCEL_ENV === 'production' || 'preview'
     ? `https://${process.env.VERCEL_URL}`
     : 'http://localhost:3000';
+
+export const getAge = (birthYear: number) => {
+  let today = new Date();
+  let age = today.getFullYear() - birthYear;
+  return age;
+};
