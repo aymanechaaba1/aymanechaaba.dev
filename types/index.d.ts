@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export type SiteConfig = {
   name: string;
   description: string;
@@ -10,7 +12,18 @@ export type SiteConfig = {
 };
 
 type Stack = {
-  name: string;
+  name:
+    | 'nextjs'
+    | 'reactjs'
+    | 'tailwind'
+    | 'typescript'
+    | 'nodejs'
+    | 'headlessui'
+    | 'postgres'
+    | 'vercel'
+    | 'drizzle'
+    | 'prisma'
+    | 'mdx';
   icon: ReactNode;
 };
 
@@ -18,7 +31,7 @@ export type Project = {
   id: string;
   name: string;
   description: string;
-  logo: string;
+  logo?: string | ReactNode;
   thumbnail: string;
   stack: Stack[];
   repo: string;
