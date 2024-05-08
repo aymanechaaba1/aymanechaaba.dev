@@ -11,6 +11,7 @@ import { siteConfig } from '@/config/siteConfig';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './(css)/alert.css';
+import Header from '@/components/Header';
 
 export const fontSans = FontSans({
   subsets: ['latin'],
@@ -75,7 +76,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen bg-background font-sans antialiased flex flex-col p-4',
+          'min-h-screen bg-background font-sans antialiased flex flex-col p-4 bg-gradient-to-br from-',
           GeistSans.className
         )}
       >
@@ -85,10 +86,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          <main className="flex-1 prose prose-headings:font-semibold prose-headings:text-black dark:prose-headings:text-white dark:prose-p:text-white dark:prose-a:text-white dark:prose-strong:text-white dark:prose-h2:text-white">
-            {children}
-          </main>
+          <Header />
+          <main className="flex-1 container min-h-screen">{children}</main>
           <Footer />
           <Analytics />
           <SpeedInsights />

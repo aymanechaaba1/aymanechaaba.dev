@@ -10,6 +10,7 @@
     "prod": "npm run build && npm run start"
   },
   "dependencies": {
+    "@headlessui/react": "^2.0.3",
     "@jsdevtools/rehype-toc": "^3.0.2",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
@@ -27,9 +28,10 @@
     "@vercel/speed-insights": "^1.0.3",
     "class-variance-authority": "^0.7.0",
     "cloudinary": "^2.0.0-rc",
-    "clsx": "^2.1.0",
+    "clsx": "^2.1.1",
     "embla-carousel-react": "^8.0.0-rc19",
     "firebase": "^10.8.0",
+    "framer-motion": "^11.1.8",
     "geist": "^1.2.0",
     "lucide-react": "^0.303.0",
     "next": "^14.2.3",
@@ -53,7 +55,7 @@
     "sharp": "^0.33.3",
     "shiki": "^1.0.0",
     "sonner": "^1.3.1",
-    "tailwind-merge": "^2.2.0",
+    "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "uuid": "^9.0.1",
     "video-react": "^0.16.0",
@@ -66,11 +68,11 @@
     "@types/react-dom": "^18",
     "@types/uuid": "^9.0.8",
     "@types/video-react": "^0.15.5",
-    "autoprefixer": "^10.0.1",
+    "autoprefixer": "^10.4.19",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
     "typescript": "^5"
   }
 }
