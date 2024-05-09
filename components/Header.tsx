@@ -8,7 +8,7 @@ import NavLinks from './NavLinks';
 
 function Header() {
   return (
-    <div className="flex items-center justify-between top-0 backdrop-blur bg-white/30 dark:bg-black/30 py-2 sticky">
+    <div className="flex items-center justify-between top-0 backdrop-blur bg-white/30 dark:bg-background/30 z-10 py-2 px-4 sticky">
       <Logo url={LOGO_URL} />
       <nav className="hidden md:flex gap-x-3 rounded-full py-2 px-4 zinc-ring-shadow text-sm gap-y-3 mt-3">
         <NavLinks />
