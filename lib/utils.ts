@@ -169,3 +169,5 @@ export const getAge = (birthYear: number) => {
   let age = today.getFullYear() - birthYear;
   return age;
 };
+
+export const removeHttps = (url: string) => url.split('//').slice(1).join('');
