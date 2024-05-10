@@ -1,3 +1,4 @@
+import ContactForm from '@/components/ContactForm';
 import Intro from '@/components/Intro';
 import Projects from '@/components/Projects';
 import Testimonials from '@/components/Testimonials';
@@ -14,6 +15,7 @@ function HomePage() {
         <Projects />
         <Testimonials />
         <BackgroundBeams className="-z-50" />
+        <ContactForm />
       </div>
     </>
   );
