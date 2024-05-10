@@ -41,12 +41,12 @@ export const TestimonialsStack = ({
   };
 
   return (
-    <div className="relative h-[300px] mt-8 w-[400px] md:w-[500px]">
+    <div className="relative h-[300px] mt-10 w-[400px] md:w-[500px] mx-auto">
       {testimonials.map((testimonial, i) => {
         return (
           <motion.div
             key={testimonial.id}
-            className="absolute flex flex-col items-stretch h-[300px] w-full"
+            className="absolute top-10 flex flex-col items-stretch h-[300px] w-full"
             style={{
               transformOrigin: 'top center',
             }}
