@@ -76,7 +76,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen bg-background font-sans antialiased flex flex-col p-4 bg-gradient-to-br from-',
+          'min-h-screen font-sans antialiased flex flex-col from-',
           GeistSans.className
         )}
       >

@@ -52,7 +52,7 @@ const projects: Project[] = [
     name: 'AntiExcel',
     description: 'Manage your School Data ONLINE.',
     live_url: 'https://antiexcel.vercel.app',
-    logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/antiexcel%2FScreenshot%202023-12-09%20at%204%20(1).webp?alt=media&token=1ecbbc5b-2bc4-4bb8-88cc-ad40dfa6fa0c',
+    logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/antiexcel%2Fantiexcel-logo.png?alt=media&token=beb80b88-520e-414d-a9a8-8e74ffca95e8',
     repo: 'https://github.com/aymanechaaba1/antiexcel',
     stack: [
       {
@@ -118,9 +118,7 @@ const projects: Project[] = [
 function Projects() {
   return (
     <div className="mt-10">
-      <h1 className="text-2xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-[#555] to-[#000] dark:from-[#fff] dark:to-[#adadad] after:content-[''] after:hidden after:w-[100px] after:h-[1px] after:mt-1 after:bg-gradient-r after:from-[#444] after:to-[#aaa]">
-        Projects
-      </h1>
+      <h1 className="ac-heading text-center md:text-left">Projects</h1>
       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5 md:gap-x-5">
         {projects.map((project) => (
           <ProjectPreview key={project.id} project={project} />

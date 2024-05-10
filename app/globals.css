@@ -123,7 +123,7 @@
   }
 
   .zinc-ring-shadow {
-    @apply bg-white/30 text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/30 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20;
+    @apply bg-white/30 text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-lg dark:bg-zinc-800/30 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20;
   }
 
   .ac-link-span {
@@ -152,5 +152,9 @@
       rgba(52, 211, 153, 0) 100%
     );
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#34d399",endColorstr="#34d399",GradientType=1);
+  }
+
+  .ac-heading {
+    @apply text-2xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-[#555] to-[#000] dark:from-[#fff] dark:to-[#adadad] after:content-[''] after:hidden after:w-[100px] after:h-[1px] after:mt-1 after:from-[#444] after:to-[#aaa];
   }
 }
