@@ -37,3 +37,15 @@ export type Project = {
   repo: string;
   live_url: string;
 };
+
+export type Testimonial = {
+  id: string;
+  name: string;
+  company: string;
+  logo: string;
+  role: string;
+  website: string;
+  avatar: string;
+  text: string;
+  video?: string;
+};

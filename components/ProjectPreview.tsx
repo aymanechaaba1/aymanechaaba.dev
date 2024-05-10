@@ -12,8 +12,8 @@ function ProjectPreview({ project }: { project: Project }) {
           <Image
             priority
             src={project.logo as string}
-            width={100}
-            height={100}
+            width={80}
+            height={80}
             alt={project.name}
             className="object-cover dark:invert"
           />
@@ -29,17 +29,17 @@ function ProjectPreview({ project }: { project: Project }) {
       </p>
       <div className="my-5 space-y-2 text-zinc-800 dark:text-zinc-200">
         <div className="flex items-center gap-x-4">
-          <FaGithub />
+          <FaGithub className="text-[15px]" />
           <Link
             target="_blank"
             href={project.repo}
-            className="text-xs md:text-sm tracking-tight font-semibold"
+            className="text-xs lg:text-sm tracking-tight font-semibold"
           >
             {project.repo}
           </Link>
         </div>
         <div className="flex items-center gap-x-4">
-          <FaEye className="" />
+          <FaEye />
           <Link
             target="_blank"
             href={project.live_url}

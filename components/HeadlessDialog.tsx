@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import {
   Button,
   Dialog,
@@ -12,12 +13,16 @@ import { type ReactNode, useState } from 'react';
 
 function HeadlessDialog({
   buttonLabel,
+  buttonClassName,
   dialogTitle,
   children,
+  className,
 }: {
-  buttonLabel: string;
+  buttonLabel: string | ReactNode;
   dialogTitle: string;
   children: Readonly<ReactNode>;
+  buttonClassName?: string;
+  className?: string;
 }) {
   let [isOpen, setIsOpen] = useState(false);
 
@@ -31,10 +36,7 @@ function HeadlessDialog({
 
   return (
     <>
-      <Button
-        onClick={open}
-        className="group md:hidden flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20"
-      >
+      <Button onClick={open} className={cn('outline-none', buttonClassName)}>
         {buttonLabel}
       </Button>
 
@@ -44,8 +46,17 @@ function HeadlessDialog({
           className="relative z-10 focus:outline-none"
           onClose={close}
         >
-          <div className="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm dark:bg-black/30 opacity-100">
-            <div className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900/30 dark:ring-zinc-800 opacity-100 scale-100">
+          <div
+            className={cn(
+              'fixed inset-0 z-50 backdrop-blur-lg dark:bg-zinc-900/30 opacity-100'
+            )}
+          >
+            <div
+              className={cn(
+                'fixed inset-x-4 backdrop-blur top-8 z-50 origin-top rounded-3xl bg-white/30 ring-1 ring-zinc-900/5 dark:bg-zinc-900/30 dark:ring-zinc-800 opacity-100 scale-100',
+                className
+              )}
+            >
               <TransitionChild
                 enter="ease-out duration-300"
                 enterFrom="opacity-0 transform-[scale(95%)]"
@@ -54,7 +65,7 @@ function HeadlessDialog({
                 leaveFrom="opacity-100 transform-[scale(100%)]"
                 leaveTo="opacity-0 transform-[scale(95%)]"
               >
-                <DialogPanel className="w-full max-w-md rounded-xl p-6 backdrop-blur-2xl">
+                <DialogPanel className="bg-transparent">
                   <DialogTitle
                     as="h3"
                     className="text-sm font-medium text-zinc-600 dark:text-zinc-400"

@@ -12,7 +12,7 @@ function Footer() {
   return (
     <>
       <Separator />
-      <footer className="flex items-center justify-between pt-3">
+      <footer className="flex items-center justify-between container py-2">
         <p className="text-sm text-muted-foreground">
           {currentYear} ©️ Aymane Chaaba
         </p>
