@@ -7,10 +7,10 @@ function Intro() {
       <h1 className="text-3xl md:text-7xl text-center font-semibold tracking-tight scroll-m-20">
         Aymane Chaaba
       </h1>
-      <p className="text-center text-sm md:text-base font-medium tracking-tight">
+      <p className="text-zinc-700 dark:text-zinc-200 text-center text-sm md:text-base font-medium tracking-tight">
         Software Engineer | Web Developer
       </p>
-      <p className="text-center text-sm md:text-base">
+      <p className="dark:text-zinc-300 text-zinc-700 tracking-tighter text-center text-sm md:text-base">
         <span>from</span> <span className="">Morocco ♥️🇲🇦</span>
         {' | '}
         <span>{getAge(1999)} yo.</span>
