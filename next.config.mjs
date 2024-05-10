@@ -1,3 +1,4 @@
+import { withNextVideo } from "next-video/process";
 import createMDX from '@next/mdx';
 import remarkGfm from 'remark-gfm';
 import remarkFrontMatter from 'remark-frontmatter';
@@ -27,4 +28,4 @@ const withMDX = createMDX({
 });
 
 // Merge MDX config with Next.js config
-export default withMDX(nextConfig);
+export default withNextVideo(withMDX(nextConfig));
