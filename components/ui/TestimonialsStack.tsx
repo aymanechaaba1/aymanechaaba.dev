@@ -41,7 +41,7 @@ export const TestimonialsStack = ({
   };
 
   return (
-    <div className="relative h-[300px] mt-10 w-[400px] md:w-[500px] mx-auto">
+    <div className="relative h-[350px] mt-10 w-[350px] md:w-[500px] mx-auto">
       {testimonials.map((testimonial, i) => {
         return (
           <motion.div

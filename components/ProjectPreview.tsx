@@ -1,3 +1,4 @@
+import { removeHttps } from '@/lib/utils';
 import { Project } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -35,7 +36,7 @@ function ProjectPreview({ project }: { project: Project }) {
             href={project.repo}
             className="text-xs lg:text-sm tracking-tight font-semibold"
           >
-            {project.repo}
+            {removeHttps(project.repo)}
           </Link>
         </div>
         <div className="flex items-center gap-x-4">
@@ -45,7 +46,7 @@ function ProjectPreview({ project }: { project: Project }) {
             href={project.live_url}
             className="text-xs md:text-sm tracking-tight font-semibold"
           >
-            {project.live_url}
+            {removeHttps(project.live_url)}
           </Link>
         </div>
       </div>
