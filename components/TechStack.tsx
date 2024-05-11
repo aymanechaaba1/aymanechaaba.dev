@@ -23,39 +23,57 @@ function TechStack() {
         <div className="pointer-events-none absolute -top-6 right-0 z-10 h-24 w-4 bg-gradient-to-l from-white px-4 py-2 md:w-8 lg:w-24 dark:from-[#020817] dark:via-[#020817]" />
         <div className="flex items-center justify-center gap-x-5 animate-slide ">
           <RiNextjsFill
-            size={30}
-            className="dark:text-zinc-300 text-zinc-600"
+            size={25}
+            className="dark:text-zinc-300 text-zinc-600 flex-shrink-0"
           />
           <RiTailwindCssFill
-            size={30}
-            className="dark:text-zinc-300 text-zinc-600"
+            size={25}
+            className="dark:text-zinc-300 text-zinc-600 flex-shrink-0"
           />
           <RiReactjsFill
-            size={30}
-            className="dark:text-zinc-300 text-zinc-600"
+            size={25}
+            className="dark:text-zinc-300 text-zinc-600 flex-shrink-0"
           />
           <SiTypescript
-            size={30}
-            className="dark:text-zinc-300 text-zinc-600"
+            size={25}
+            className="dark:text-zinc-300 text-zinc-600 flex-shrink-0"
           />
           <BiLogoPostgresql
-            size={30}
-            className="dark:text-zinc-300 text-zinc-600"
+            size={25}
+            className="dark:text-zinc-300 text-zinc-600 flex-shrink-0"
           />
-          <FaGithub size={30} className="dark:text-zinc-300 text-zinc-600" />
-          <SiDrizzle size={30} className="dark:text-zinc-300 text-zinc-600" />
-          <SiPrisma size={30} className="dark:text-zinc-300 text-zinc-600" />
+          <FaGithub
+            size={25}
+            className="dark:text-zinc-300 text-zinc-600 flex-shrink-0"
+          />
+          <SiDrizzle
+            size={25}
+            className="dark:text-zinc-300 text-zinc-600 flex-shrink-0"
+          />
+          <SiPrisma
+            size={25}
+            className="dark:text-zinc-300 text-zinc-600 flex-shrink-0"
+          />
           <IoLogoVercel
-            size={30}
-            className="dark:text-zinc-300 text-zinc-600"
+            size={25}
+            className="dark:text-zinc-300 text-zinc-600 flex-shrink-0"
           />
           <IoLogoFirebase
-            size={30}
-            className="dark:text-zinc-300 text-zinc-600"
+            size={25}
+            className="dark:text-zinc-300 text-zinc-600 flex-shrink-0"
           />
-          <SiVitest size={30} className="dark:text-zinc-300 text-zinc-600" />
-          <SiJest size={30} className="dark:text-zinc-300 text-zinc-600" />
-          <SiJira size={30} className="dark:text-zinc-300 text-zinc-600" />
+          <SiVitest
+            size={25}
+            className="dark:text-zinc-300 text-zinc-600 flex-shrink-0"
+          />
+          <SiJest
+            size={25}
+            className="dark:text-zinc-300 text-zinc-600 flex-shrink-0"
+          />
+          <SiJira
+            size={25}
+            className="dark:text-zinc-300 text-zinc-600 flex-shrink-0"
+          />
         </div>
       </div>
     </div>
