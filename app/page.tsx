@@ -16,7 +16,7 @@ function HomePage() {
         <TechStack />
         <Projects />
         <Testimonials />
-        <BackgroundBeams className="-z-50" />
+        {/* <BackgroundBeams className="-z-50" /> */}
         <ContactForm />
       </div>
     </>
