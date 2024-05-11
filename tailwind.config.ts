@@ -78,11 +78,19 @@ const config = {
           from: { transform: 'translateX(130%)' },
           to: { transform: 'translateX(-130%)' },
         },
+        sound: {
+          from: { height: `4px` },
+          to: { height: `14px` },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down .2s ease-out',
         'accordion-up': 'accordion-up .2s ease-out',
         slide: 'slide 12s infinite linear',
+        sound: 'sound 1.3s infinite linear',
+      },
+      transitionDelay: {
+        '600': '600ms',
       },
     },
   },
