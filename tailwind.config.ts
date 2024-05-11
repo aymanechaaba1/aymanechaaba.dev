@@ -75,14 +75,14 @@ const config = {
           to: { height: '0' },
         },
         slide: {
-          from: { transform: 'translateX(100%)' },
-          to: { transform: 'translateX(-100%)' },
+          from: { transform: 'translateX(130%)' },
+          to: { transform: 'translateX(-130%)' },
         },
       },
       animation: {
         'accordion-down': 'accordion-down .2s ease-out',
         'accordion-up': 'accordion-up .2s ease-out',
-        slide: 'slide 20s infinite linear',
+        slide: 'slide 12s infinite linear',
       },
     },
   },
