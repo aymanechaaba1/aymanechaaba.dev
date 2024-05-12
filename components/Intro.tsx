@@ -1,9 +1,11 @@
 import { getAge } from '@/lib/utils';
 import React from 'react';
+import IntroSpeech from './IntroSpeech';
 
 function Intro() {
   return (
     <div className="max-w-[400px] md:max-w-[1000px] flex flex-col mx-auto items-center justify-center">
+      <IntroSpeech />
       <h1 className="text-3xl md:text-7xl text-center font-semibold tracking-tight scroll-m-20">
         Aymane Chaaba
       </h1>
