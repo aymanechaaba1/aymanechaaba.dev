@@ -88,6 +88,7 @@ const config = {
         'accordion-up': 'accordion-up .2s ease-out',
         slide: 'slide 12s infinite linear',
         sound: 'sound 1.3s infinite linear',
+        wave: 'wave 1.7s infinite cubic-bezier(.28,.62,.67,.52)',
       },
       transitionDelay: {
         '600': '600ms',

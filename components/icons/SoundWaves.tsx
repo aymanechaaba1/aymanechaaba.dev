@@ -15,15 +15,18 @@ function SoundWaves({
       onClick={onClick}
     >
       <div
-        className={cn('w-[1px] h-[4px] bg-zinc-900 dark:bg-zinc-200 delay-0', {
-          'animate-sound': isPlaying,
-        })}
+        className={cn(
+          'w-[1px] h-[4px] bg-zinc-900 dark:bg-zinc-200 delay-0 transition',
+          {
+            'animate-wave': isPlaying,
+          }
+        )}
       />
       <div
         className={cn(
-          'w-[1px] h-[9px] bg-zinc-900 dark:bg-zinc-200 delay-100',
+          'w-[1px] h-[9px] bg-zinc-900 dark:bg-zinc-200 delay-100 transition',
           {
-            'animate-sound': isPlaying,
+            'animate-wave': isPlaying,
           }
         )}
       />
@@ -31,7 +34,7 @@ function SoundWaves({
         className={cn(
           'w-[1px] h-[13px] bg-zinc-900 dark:bg-zinc-200 delay-300',
           {
-            'animate-sound': isPlaying,
+            'animate-wave': isPlaying,
           }
         )}
       />
@@ -39,20 +42,20 @@ function SoundWaves({
         className={cn(
           'w-[1px] h-[9px] bg-zinc-900 dark:bg-zinc-200 delay-500',
           {
-            'animate-sound': isPlaying,
+            'animate-wave': isPlaying,
           }
         )}
       />
       <div
         className={cn('w-[1px] h-[4px] bg-zinc-900 dark:bg-zinc-200 delay-75', {
-          'animate-sound': isPlaying,
+          'animate-wave': isPlaying,
         })}
       />
       <div
         className={cn(
           'w-[1px] h-[6px] bg-zinc-900 dark:bg-zinc-200 delay-300',
           {
-            'animate-sound': isPlaying,
+            'animate-wave': isPlaying,
           }
         )}
       />
@@ -60,7 +63,7 @@ function SoundWaves({
         className={cn(
           'w-[1px] h-[11px] bg-zinc-900 dark:bg-zinc-200 delay-200',
           {
-            'animate-sound': isPlaying,
+            'animate-wave': isPlaying,
           }
         )}
       />
@@ -68,7 +71,7 @@ function SoundWaves({
         className={cn(
           'w-[1px] h-[16px] bg-zinc-900 dark:bg-zinc-200 delay-300',
           {
-            'animate-sound': isPlaying,
+            'animate-wave': isPlaying,
           }
         )}
       />
@@ -76,7 +79,7 @@ function SoundWaves({
         className={cn(
           'w-[1px] h-[14px] bg-zinc-900 dark:bg-zinc-200 delay-500',
           {
-            'animate-sound': isPlaying,
+            'animate-wave': isPlaying,
           }
         )}
       />
@@ -84,7 +87,7 @@ function SoundWaves({
         className={cn(
           'w-[1px] h-[6px] bg-zinc-900 dark:bg-zinc-200 delay-600',
           {
-            'animate-sound': isPlaying,
+            'animate-wave': isPlaying,
           }
         )}
       />
@@ -92,7 +95,7 @@ function SoundWaves({
         className={cn(
           'w-[1px] h-[9px] bg-zinc-900 dark:bg-zinc-200 delay-500',
           {
-            'animate-sound': isPlaying,
+            'animate-wave': isPlaying,
           }
         )}
       />
@@ -100,7 +103,7 @@ function SoundWaves({
         className={cn(
           'w-[1px] h-[8px] bg-zinc-900 dark:bg-zinc-200 delay-300',
           {
-            'animate-sound': isPlaying,
+            'animate-wave': isPlaying,
           }
         )}
       />
@@ -108,7 +111,7 @@ function SoundWaves({
         className={cn(
           'w-[1px] h-[5px] bg-zinc-900 dark:bg-zinc-200 delay-500',
           {
-            'animate-sound': isPlaying,
+            'animate-wave': isPlaying,
           }
         )}
       />
@@ -116,7 +119,7 @@ function SoundWaves({
         className={cn(
           'w-[1px] h-[3px] bg-zinc-900 dark:bg-zinc-200 delay-300',
           {
-            'animate-sound': isPlaying,
+            'animate-wave': isPlaying,
           }
         )}
       />

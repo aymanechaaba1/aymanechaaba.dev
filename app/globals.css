@@ -154,4 +154,16 @@
   .headless-button {
     @apply inline-flex items-center gap-2 rounded-md bg-zinc-700/30 backdrop-blur py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-zinc-700/30 data-[open]:bg-zinc-700 data-[focus]:outline-1 data-[focus]:outline-white;
   }
+
+  @keyframes wave {
+    0% {
+      transform: scale(0.5);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(0.5);
+    }
+  }
 }

@@ -4,46 +4,47 @@ import { cn } from '@/lib/utils';
 import { ElementRef, useEffect, useRef, useState } from 'react';
 import { GiSoundWaves } from 'react-icons/gi';
 import SoundWaves from './icons/SoundWaves';
+import { SPEECH_AUDIO } from '@/config';
 
 function IntroSpeech() {
-  const audioRef = useRef<ElementRef<'audio'>>(null);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const audioRef = useRef<HTMLAudioElement | undefined>(
+    typeof Audio !== 'undefined' ? new Audio(SPEECH_AUDIO) : undefined
+  );
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  let [audio] = useState(audioRef.current);
 
   const playSound = () => {
-    let audioEl = audioRef.current;
+    isPlaying ? audio?.pause() : audio?.play();
 
-    if (!audioEl) return;
-
-    if (audioEl.paused) {
-      audioEl.play();
-      setIsPlaying(true);
-    } else {
-      audioEl.pause();
-      setIsPlaying(false);
-    }
+    setIsPlaying(!isPlaying);
   };
 
   useEffect(() => {
-    console.log(audioRef?.current?.paused);
-  }, [audioRef]);
+    const handleEnded = () => {
+      setIsPlaying(false);
+    };
+
+    audio?.addEventListener('ended', handleEnded);
+
+    return () => {
+      audio?.removeEventListener('ended', handleEnded);
+    };
+  }, [audio]);
 
   return (
     <div className="flex items-center gap-x-5">
-      <GiSoundWaves
+      {/* <GiSoundWaves
         size={30}
         onClick={playSound}
         className={cn('cursor-pointer')}
-      />
-      {/* <SoundWaves
+      /> */}
+      <SoundWaves
         isPlaying={isPlaying}
         onClick={playSound}
         className="cursor-pointer"
-      /> */}
-      <audio
-        ref={audioRef}
-        src="https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/recording2024-05-11%2014-41-43.m4a?alt=media&token=3c41b564-2670-4626-8f5c-8f69106f105a"
-        hidden
       />
+      {/* <audio ref={audioRef} src={SPEECH_AUDIO} hidden /> */}
     </div>
   );
 }
