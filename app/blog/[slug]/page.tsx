@@ -122,9 +122,9 @@ export default async function Blog({ params }: { params: { slug: string } }) {
             {formatDate(post.metadata.publishedAt)}
           </p>
         </Suspense>
-        <Suspense fallback={<Loader2 className="animate-spin" />}>
+        {/* <Suspense fallback={<Loader2 className="animate-spin" />}>
           <Views slug={post.slug} />
-        </Suspense>
+        </Suspense> */}
       </div>
       <article className="prose prose-zinc dark:prose-invert prose-pre:bg-zinc-100 dark:prose-pre:!bg-zinc-900 prose-pre:rounded-t-none">
         <CustomMDX source={post.content} />
@@ -133,10 +133,10 @@ export default async function Blog({ params }: { params: { slug: string } }) {
   );
 }
 
-let incrementViews = cache(increment);
+// let incrementViews = cache(increment);
 
-async function Views({ slug }: { slug: string }) {
-  let views = await getViewsCount();
-  incrementViews(slug);
-  return <ViewCounter allViews={views} slug={slug} />;
-}
+// async function Views({ slug }: { slug: string }) {
+//   let views = await getViewsCount();
+//   incrementViews(slug);
+//   return <ViewCounter allViews={views} slug={slug} />;
+// }
