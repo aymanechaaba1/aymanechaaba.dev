@@ -1,11 +1,8 @@
 import type { Metadata } from 'next';
-import { Suspense, cache } from 'react';
+import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { unstable_noStore as noStore } from 'next/cache';
 import { getBlogPosts } from '@/app/db/blog';
-import { getViewsCount } from '@/app/db/queries';
-import ViewCounter from '@/components/mdx/ViewCounter';
-import { increment } from '@/app/db/actions';
 import { LIVE_URL } from '@/config';
 import { Loader2 } from 'lucide-react';
 import { CustomMDX } from '@/components/mdx/CustomMDX';
@@ -84,7 +81,7 @@ function formatDate(date: string) {
   }
 }
 
-export default async function Blog({ params }: { params: { slug: string } }) {
+export default function Blog({ params }: { params: { slug: string } }) {
   let post = getBlogPosts().find((post: any) => post.slug === params.slug);
 
   if (!post) notFound();
@@ -122,9 +119,6 @@ export default async function Blog({ params }: { params: { slug: string } }) {
             {formatDate(post.metadata.publishedAt)}
           </p>
         </Suspense>
-        {/* <Suspense fallback={<Loader2 className="animate-spin" />}>
-          <Views slug={post.slug} />
-        </Suspense> */}
       </div>
       <article className="prose prose-zinc dark:prose-invert prose-pre:bg-zinc-100 dark:prose-pre:!bg-zinc-900 prose-pre:rounded-t-none">
         <CustomMDX source={post.content} />
@@ -132,11 +126,3 @@ export default async function Blog({ params }: { params: { slug: string } }) {
     </section>
   );
 }
-
-// let incrementViews = cache(increment);
-
-// async function Views({ slug }: { slug: string }) {
-//   let views = await getViewsCount();
-//   incrementViews(slug);
-//   return <ViewCounter allViews={views} slug={slug} />;
-// }
