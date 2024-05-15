@@ -1,12 +1,3 @@
-import { withNextVideo } from "next-video/process";
-import createMDX from '@next/mdx';
-import remarkGfm from 'remark-gfm';
-import remarkFrontMatter from 'remark-frontmatter';
-import { remarkAlert } from 'remark-github-blockquote-alert';
-import rehypeSlug from 'rehype-slug';
-import rehypePrettyCode from 'rehype-pretty-code';
-
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: {
@@ -14,18 +5,12 @@ const nextConfig = {
       {
         hostname: 'firebasestorage.googleapis.com',
       },
+      { protocol: 'https', hostname: 'pbs.twimg.com' },
+      { protocol: 'https', hostname: 'abs.twimg.com' },
     ],
   },
+  transpilePackages: ['next-mdx-remote', 'react-tweet'],
   reactStrictMode: true,
 };
 
-const withMDX = createMDX({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [[remarkGfm], [remarkFrontMatter], remarkAlert],
-    rehypePlugins: [[rehypePrettyCode], [rehypeSlug]],
-  },
-});
-
-// Merge MDX config with Next.js config
-export default withNextVideo(withMDX(nextConfig));
+export default nextConfig;

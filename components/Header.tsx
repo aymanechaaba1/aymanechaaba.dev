@@ -10,7 +10,7 @@ function Header() {
   return (
     <div className="flex items-center justify-between top-0 backdrop-blur bg-white/30 dark:bg-background/30 z-10 py-2 container sticky">
       <Logo url={LOGO_URL} />
-      <nav className="hidden md:flex gap-x-3 rounded-full py-2 px-4 zinc-ring-shadow text-sm gap-y-3 mt-3">
+      <nav className="hidden md:flex gap-x-3 rounded-full py-2 px-4 zinc-ring-shadow text-sm gap-y-3">
         <NavLinks />
       </nav>
       <div className="flex items-center gap-x-3">
