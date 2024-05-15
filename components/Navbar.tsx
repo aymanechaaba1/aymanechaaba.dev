@@ -5,7 +5,7 @@ import NavLinks from './NavLinks';
 
 function Navbar() {
   return (
-    <nav className="flex flex-col gap-y-3 mt-3">
+    <nav className="flex flex-col gap-y-3">
       <NavLinks />
     </nav>
   );
