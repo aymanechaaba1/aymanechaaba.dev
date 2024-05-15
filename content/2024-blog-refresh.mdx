@@ -1,0 +1,848 @@
+---
+title: '2024 Blog Refresh'
+publishedAt: '2024-05-13'
+summary: 'NextJS 14 & MDX Integration'
+---
+
+This is my first blog post writing about NextJS and MDX and how I was able to integrate them together "pretty fast" getting inspired from [leerob's website](https://leerob.io/).
+
+- [Why MDX and not a CMS](#why-mdx-and-not-a-cms)
+- [Folders Structure](#folders-structure)
+- [Necessary Packages](#necessary-packages)
+- [NextJS Config](#nextjs-config)
+- [Content and MDX Components Folders](#content-and-mdx-components-folders)
+- [Reading MDX Files](#reading-mdx-files)
+- [Rendering list of Blog Posts](#rendering-list-of-blog-posts)
+- [Rendering single Blog Post](#rendering-single-blog-post)
+
+## Why MDX and not a CMS
+
+I've wanted for over 2 months ago, build my portfolio with MDX, I've started watching youtube videos until I've landed into [delba's video](https://www.youtube.com/watch?v=zl9iXZrw_dw&t=393s).
+
+That video catched my eye, because Delba create such [beautiful videos](https://www.youtube.com/@Delba) explaining [NextJS](https://nextjs.org/) concepts and she does it in a pretty unique way following design patterns of vercel platform.
+
+She mentioned MDX in that video, and I trusted her and I went and search for it all over social media and Youtube and I found out that it is much better to maintain and work with along the way as you're building some static content such as blog or portfolio.
+
+Then, [leerob's website](https://leerob.io/), uses MDX and the great thing about it, it is updated to the latest version of NextJS which is v14.
+
+Let me show you how I "stole" code 😆 from leerob and add it to my code, to make MDX functional as expected. (**I Don't Reivent the Wheel!**)
+
+## Folders Structure
+
+```bash
+├── app
+    └── blog
+        └── [slug]
+            ├── layout.tsx
+            └── page.tsx
+        └── page.tsx
+    └── db
+        ├── actions.ts
+        ├── blog.ts
+        ├── postgres.ts
+        └── queries.ts
+    └── globals.css
+├── components
+    └── mdx
+      ├── Aside.tsx
+      ├── CustomMDX.tsx
+      ├── Pre.tsx
+      ├── Tweet.tsx
+      └── ViewCounter.tsx
+├── content
+    └── 2024.mdx <== this blog post
+└── next.config.mjs
+```
+
+### Necessary Packages
+
+```bash title="terminal"
+npm i next-mdx-remote react-tweet rehype-slug rehype-pretty-code postgres
+```
+
+```bash title="terminal"
+npm i @tailwindcss/typography -D
+```
+
+### NextJS Config
+
+Before writing any rendering logic, you must correctly configure your NextJS project to make everything work as expected and to avoid any bugs that may occur along the way.
+
+```js title="next.config.mjs"
+const nextConfig = {
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  images: {
+    remotePatterns: [
+      {
+        hostname: 'firebasestorage.googleapis.com',
+      },
+      { protocol: 'https', hostname: 'pbs.twimg.com' },
+      { protocol: 'https', hostname: 'abs.twimg.com' },
+    ],
+  },
+  transpilePackages: ['next-mdx-remote', 'react-tweet'],
+  reactStrictMode: true,
+};
+
+export default nextConfig;
+```
+
+### Content and MDX Components Folders
+
+Create `content` folder in your root directory and `mdx` folder in your `components` folder and add all the necessary components that you see on the folders structure above.
+
+```tsx title="components/mdx/Aside.tsx"
+import { OOF_GRAD } from '@/config';
+import clsx from 'clsx';
+import React from 'react';
+
+export const Aside = ({
+  children,
+  title,
+}: {
+  children: React.ReactNode;
+  title?: string;
+}) => {
+  return (
+    <div className="z-10 border-l-2 border-rose-200/5 pl-3">
+      {title ? (
+        <div className="mb-2 text-base italic text-opacity-100">{title}</div>
+      ) : null}
+
+      <div
+        className={clsx(
+          '[&>span[data-rehype-pretty-code-fragment]]:!text-[11px] text-sm',
+          OOF_GRAD
+        )}
+      >
+        {children}
+      </div>
+    </div>
+  );
+};
+```
+
+```tsx title="components/mdx/Pre.tsx" {41}
+'use client';
+
+import { ElementRef, useRef, useState } from 'react';
+import { FaCheck } from 'react-icons/fa6';
+import { FaCopy } from 'react-icons/fa';
+
+export default function Pre({
+  children,
+  filename,
+  ...props
+}: {
+  filename: string;
+  children: string;
+}) {
+  const preRef = useRef<ElementRef<'pre'>>(null);
+  const [isCopied, setIsCopied] = useState<boolean>(false);
+
+  const copy = () => {
+    if (!preRef.current?.innerText) return;
+
+    navigator.clipboard
+      .writeText(preRef.current.innerText)
+      .then(() => {
+        console.log('Code copied successfully');
+        setIsCopied(true);
+        setTimeout(() => setIsCopied(false), 1500);
+      })
+      .catch((err) => {
+        console.error('Unable to copy code: ', err);
+      });
+  };
+
+  return (
+    <pre ref={preRef} className="relative" {...props}>
+      {isCopied ? (
+        <FaCheck size={13} className="float-right cursor-pointer" />
+      ) : (
+        <FaCopy
+          size={13}
+          className="float-right cursor-pointer"
+          onClick={copy}
+        />
+      )}
+      <div className="my-5">{children}</div>
+    </pre>
+  );
+}
+```
+
+- The `copy` function is how you're able now to copy any code you see in this blog post.
+
+```tsx title="components/mdx/Tweet.tsx"
+import { getTweet as _getTweet } from 'react-tweet/api';
+import { Suspense } from 'react';
+import { TweetSkeleton, EmbeddedTweet, TweetNotFound } from 'react-tweet';
+import '@/app/(css)/tweet.css';
+import { unstable_cache } from 'next/cache';
+import type { TwitterComponents } from 'react-tweet';
+import Image from 'next/image';
+
+export const components: TwitterComponents = {
+  AvatarImg: (props) => <Image {...props} className="" />,
+  MediaImg: (props) => <Image {...props} fill unoptimized />,
+};
+
+const getTweet = unstable_cache(
+  async (id: string) => _getTweet(id),
+  ['tweet'],
+  { revalidate: 3600 * 24 }
+);
+
+const TweetContent = async ({ id }: { id: string }) => {
+  try {
+    const tweet = await getTweet(id);
+    return tweet ? (
+      <EmbeddedTweet tweet={tweet} components={components} />
+    ) : (
+      <TweetNotFound />
+    );
+  } catch (error) {
+    console.error(error);
+    return <TweetNotFound error={error} />;
+  }
+};
+
+export async function Tweet({ id }: { id: string }) {
+  return (
+    <Suspense fallback={<TweetSkeleton />}>
+      <div className="tweet not-prose flex justify-center">
+        <TweetContent id={id} />
+      </div>
+    </Suspense>
+  );
+}
+```
+
+- This component is if you want to embed a tweet in your blog post. It uses `react-tweet` package as it shows beautifully styled tweet component with light and dark mode.
+
+```tsx title="components/mdx/ViewCounter.tsx"
+export default function ViewCounter({
+  slug,
+  allViews,
+}: {
+  slug: string;
+  allViews: {
+    slug: string;
+    count: number;
+  }[];
+  trackView?: boolean;
+}) {
+  const viewsForSlug = allViews && allViews.find((view) => view.slug === slug);
+  const number = new Number(viewsForSlug?.count || 0);
+
+  return (
+    <p className="text-neutral-600 dark:text-neutral-400">
+      {`${number.toLocaleString()} views`}
+    </p>
+  );
+}
+```
+
+```tsx title="components/mdx/CustomMDX.tsx" {3,5,6,125,138}
+import Link from 'next/link';
+import Image from 'next/image';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import React, { ReactNode } from 'react';
+import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeSlug from 'rehype-slug';
+import { Tweet } from './Tweet';
+import Pre from './Pre';
+
+type Data = {
+  headers: any[];
+  rows: any[];
+};
+function Table({ data }: { data: Data }) {
+  let headers = data.headers.map((header, i) => <th key={i}>{header}</th>);
+  let rows = data.rows.map((row, i) => (
+    <tr key={i}>
+      {row.map((cell: any, cellIndex: React.Key) => (
+        <td key={cellIndex}>{cell}</td>
+      ))}
+    </tr>
+  ));
+
+  return (
+    <table>
+      <thead>
+        <tr>{headers}</tr>
+      </thead>
+      <tbody>{rows}</tbody>
+    </table>
+  );
+}
+
+function CustomLink(props: any) {
+  let href = props.href;
+
+  if (href.startsWith('/')) {
+    return (
+      <Link href={href} {...props}>
+        {props.children}
+      </Link>
+    );
+  }
+
+  if (href.startsWith('#')) {
+    return <a {...props} />;
+  }
+
+  return <a target="_blank" rel="noopener noreferrer" {...props} />;
+}
+
+function RoundedImage({ alt, ...props }: any) {
+  return <Image alt={alt} className="rounded-lg" {...props} />;
+}
+
+function Callout(props: { emoji: string; children: Readonly<ReactNode> }) {
+  return (
+    <div className="px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 mb-8">
+      <div className="flex items-center w-4 mr-4">{props.emoji}</div>
+      <div className="w-full callout">{props.children}</div>
+    </div>
+  );
+}
+
+function ProsCard({ title, pros }: { title: string; pros: any[] }) {
+  return (
+    <div className="border border-emerald-200 dark:border-emerald-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-4 w-full">
+      <span>{`You might use ${title} if...`}</span>
+      <div className="mt-4">
+        {pros.map((pro) => (
+          <div key={pro} className="flex font-medium items-baseline mb-2">
+            <div className="h-4 w-4 mr-2">
+              <svg className="h-4 w-4 text-emerald-500" viewBox="0 0 24 24">
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                  <path d="M22 4L12 14.01l-3-3" />
+                </g>
+              </svg>
+            </div>
+            <span>{pro}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ConsCard({ title, cons }: { title: string; cons: string[] }) {
+  return (
+    <div className="border border-red-200 dark:border-red-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-6 w-full">
+      <span>{`You might not use ${title} if...`}</span>
+      <div className="mt-4">
+        {cons.map((con) => (
+          <div key={con} className="flex font-medium items-baseline mb-2">
+            <div className="h-4 w-4 mr-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="h-4 w-4 text-red-500"
+              >
+                <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+              </svg>
+            </div>
+            <span>{con}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+let components = {
+  Image: RoundedImage,
+  a: CustomLink,
+  Callout,
+  ProsCard,
+  ConsCard,
+  StaticTweet: Tweet,
+  Table,
+  pre: Pre,
+};
+
+export function CustomMDX(props: any) {
+  return (
+    <MDXRemote
+      {...props}
+      components={{ ...components, ...(props.components || {}) }}
+      options={{
+        mdxOptions: {
+          remarkPlugins: [],
+          rehypePlugins: [[rehypePrettyCode], [rehypeSlug]],
+        },
+      }}
+    />
+  );
+}
+```
+
+- This is where you define all your custom components and pass them to `MDXRemote`.
+- You can also pass `rehype` and `remark` plugins, I'm using `rehype-pretty-code` to style my code blocks, highlight lines of code and also adding titles.
+- `rehype-slug` to create anchor links to navigate my blog post.
+- Notice, I'm passing `StaticTweet` to components object and I can use it directly in my MDX files.
+
+```css title="app/globals.css"
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  [data-rehype-pretty-code-title] {
+    @apply text-zinc-200 bg-zinc-900 rounded-t-lg dark:bg-zinc-800 dark:text-zinc-200 py-2 px-4 rounded-none;
+  }
+
+  code {
+    counter-reset: line;
+  }
+
+  code > [data-line]::before {
+    counter-increment: line;
+    content: counter(line);
+
+    /* Other styling */
+    display: inline-block;
+    width: 1rem;
+    margin-right: 2rem;
+    text-align: right;
+    color: gray;
+  }
+
+  code[data-line-numbers-max-digits='2'] > [data-line]::before {
+    width: 2rem;
+  }
+
+  code[data-line-numbers-max-digits='3'] > [data-line]::before {
+    width: 3rem;
+  }
+
+  pre {
+    @apply relative;
+  }
+
+  [data-highlighted-line] {
+    @apply bg-zinc-200/10;
+  }
+
+  .circle {
+    clip-path: circle(50%);
+  }
+}
+```
+
+### Reading MDX files
+
+All the logic happens in `app/db/blog.ts`, that's how we transform mdx files to html.
+
+```ts title="app/db/blog.ts" {52}
+import fs from 'fs';
+import path from 'path';
+
+type Metadata = {
+  title: string;
+  publishedAt: string;
+  summary: string;
+  image?: string;
+};
+
+function parseFrontmatter(fileContent: string) {
+  let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
+  let match = frontmatterRegex.exec(fileContent);
+  let frontMatterBlock = match![1];
+  let content = fileContent.replace(frontmatterRegex, '').trim();
+  let frontMatterLines = frontMatterBlock.trim().split('\n');
+  let metadata: Partial<Metadata> = {};
+
+  frontMatterLines.forEach((line) => {
+    let [key, ...valueArr] = line.split(': ');
+    let value = valueArr.join(': ').trim();
+    value = value.replace(/^['"](.*)['"]$/, '$1'); // Remove quotes
+    metadata[key.trim() as keyof Metadata] = value;
+  });
+
+  return { metadata: metadata as Metadata, content };
+}
+
+function getMDXFiles(dir: string) {
+  return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx');
+}
+
+function readMDXFile(filePath: string) {
+  let rawContent = fs.readFileSync(filePath, 'utf-8');
+  return parseFrontmatter(rawContent);
+}
+
+function getMDXData(dir: string) {
+  let mdxFiles = getMDXFiles(dir);
+  return mdxFiles.map((file) => {
+    let { metadata, content } = readMDXFile(path.join(dir, file));
+    let slug = path.basename(file, path.extname(file));
+
+    return {
+      metadata,
+      slug,
+      content,
+    };
+  });
+}
+
+export function getBlogPosts() {
+  return getMDXData(path.join(process.cwd(), 'content'));
+}
+```
+
+```ts title="app/db/queries.ts"
+'use server';
+
+import {
+  unstable_cache as cache,
+  unstable_noStore as noStore,
+} from 'next/cache';
+import { sql } from './postgres';
+
+export async function getViewsCount(): Promise<
+  { slug: string; count: number }[]
+> {
+  if (!process.env.POSTGRES_URL) return [];
+
+  noStore();
+  return sql`
+    SELECT slug, count
+    FROM views
+  `;
+}
+```
+
+```ts title="app/db/actions.ts"
+import { unstable_noStore as noStore } from 'next/cache';
+import { sql } from './postgres';
+
+export async function increment(slug: string) {
+  noStore();
+  await sql`
+    INSERT INTO views (slug, count)
+    VALUES (${slug}, 1)
+    ON CONFLICT (slug)
+    DO UPDATE SET count = views.count + 1
+  `;
+}
+```
+
+Now, that we have setup all our necessary files, let's work on the rendering logic.
+
+### Rendering list of Blog Posts
+
+```tsx title="app/blog/page.tsx" {13}
+import React, { Suspense } from 'react';
+import { getBlogPosts } from '../db/blog';
+import Link from 'next/link';
+import { getViewsCount } from '../db/queries';
+import ViewCounter from '@/components/mdx/ViewCounter';
+
+export const metadata = {
+  title: 'Blog',
+  description: 'Read my thoughts on software development, design, and more.',
+};
+
+function BlogPage() {
+  let allBlogs = getBlogPosts();
+
+  return (
+    <section className="my-5">
+      <h1 className="font-semibold text-2xl tracking-tighter">Read my Blog</h1>
+      <p className="tracking-tight scroll-m-20 leading-none mt-1 text-zinc-600 dark:text-zinc-300">
+        I write content about web development, software design and tech
+        industry.
+      </p>
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {allBlogs
+          .sort((a, b) => {
+            if (
+              new Date(a.metadata.publishedAt) >
+              new Date(b.metadata.publishedAt)
+            ) {
+              return -1;
+            }
+            return 1;
+          })
+          .map((post) => (
+            <Link
+              key={post.slug}
+              className="flex flex-col space-y-1 border p-5 rounded-lg"
+              href={`/blog/${post.slug}`}
+            >
+              <div className="w-full flex flex-col">
+                <p className="text-neutral-900 dark:text-neutral-100 tracking-tight font-medium">
+                  {post.metadata.title}
+                </p>
+                <Suspense fallback={<p className="h-6" />}>
+                  <Views slug={post.slug} />
+                </Suspense>
+              </div>
+            </Link>
+          ))}
+      </div>
+    </section>
+  );
+}
+
+async function Views({ slug }: { slug: string }) {
+  let views = await getViewsCount();
+
+  return <ViewCounter allViews={views} slug={slug} />;
+}
+
+export default BlogPage;
+```
+
+### Rendering single Blog Post
+
+1. layout:
+
+```tsx title="app/blog/[slug]/layout.tsx"
+import React, { ReactNode } from 'react';
+
+function BlogPostLayout({ children }: { children: Readonly<ReactNode> }) {
+  return <div className="mx-auto flex justify-center">{children}</div>;
+}
+
+export default BlogPostLayout;
+```
+
+2. blog post page:
+
+```tsx title="app/blog/[slug]/page.tsx" {11,88,130}
+import type { Metadata } from 'next';
+import { Suspense, cache } from 'react';
+import { notFound } from 'next/navigation';
+import { unstable_noStore as noStore } from 'next/cache';
+import { getBlogPosts } from '@/app/db/blog';
+import { getViewsCount } from '@/app/db/queries';
+import ViewCounter from '@/components/mdx/ViewCounter';
+import { increment } from '@/app/db/actions';
+import { LIVE_URL } from '@/config';
+import { Loader2 } from 'lucide-react';
+import { CustomMDX } from '@/components/mdx/CustomMDX';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata | undefined> {
+  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  if (!post) return;
+
+  let {
+    title,
+    publishedAt: publishedTime,
+    summary: description,
+    image,
+  } = post.metadata;
+  let ogImage = image
+    ? `https://${LIVE_URL}${image}`
+    : `https://${LIVE_URL}/og?title=${title}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      publishedTime,
+      url: `https://${LIVE_URL}/blog/${post.slug}`,
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
+    },
+  };
+}
+
+function formatDate(date: string) {
+  noStore();
+  let currentDate = new Date().getTime();
+  if (!date.includes('T')) {
+    date = `${date}T00:00:00`;
+  }
+  let targetDate = new Date(date).getTime();
+  let timeDifference = Math.abs(currentDate - targetDate);
+  let daysAgo = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+  let fullDate = new Date(date).toLocaleString('en-us', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  });
+
+  if (daysAgo < 1) {
+    return 'Today';
+  } else if (daysAgo < 7) {
+    return `${fullDate} (${daysAgo}d ago)`;
+  } else if (daysAgo < 30) {
+    const weeksAgo = Math.floor(daysAgo / 7);
+    return `${fullDate} (${weeksAgo}w ago)`;
+  } else if (daysAgo < 365) {
+    const monthsAgo = Math.floor(daysAgo / 30);
+    return `${fullDate} (${monthsAgo}mo ago)`;
+  } else {
+    const yearsAgo = Math.floor(daysAgo / 365);
+    return `${fullDate} (${yearsAgo}y ago)`;
+  }
+}
+
+export default async function Blog({ params }: { params: { slug: string } }) {
+  let post = getBlogPosts().find((post: any) => post.slug === params.slug);
+
+  if (!post) notFound();
+
+  return (
+    <section className="max-w-full my-10">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: post.metadata.title,
+            datePublished: post.metadata.publishedAt,
+            dateModified: post.metadata.publishedAt,
+            description: post.metadata.summary,
+            image: post.metadata.image
+              ? `https://${LIVE_URL}${post.metadata.image}`
+              : `https://${LIVE_URL}/og?title=${post.metadata.title}`,
+            url: `https://${LIVE_URL}/blog/${post.slug}`,
+            author: {
+              '@type': 'Person',
+              name: 'Aymane Chaaba',
+            },
+          }),
+        }}
+      />
+      <h1 className="title font-medium text-2xl tracking-tighter">
+        {post.metadata.title}
+      </h1>
+      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
+        <Suspense fallback={<Loader2 className="animate-spin" />}>
+          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+            {formatDate(post.metadata.publishedAt)}
+          </p>
+        </Suspense>
+        <Suspense fallback={<Loader2 className="animate-spin" />}>
+          <Views slug={post.slug} />
+        </Suspense>
+      </div>
+      <article className="prose prose-zinc dark:prose-invert prose-pre:bg-zinc-100 dark:prose-pre:!bg-zinc-900 prose-pre:rounded-t-none">
+        <CustomMDX source={post.content} />
+      </article>
+    </section>
+  );
+}
+
+let incrementViews = cache(increment);
+
+async function Views({ slug }: { slug: string }) {
+  let views = await getViewsCount();
+  incrementViews(slug);
+  return <ViewCounter allViews={views} slug={slug} />;
+}
+```
+
+- `LIVE_URL` is a variable stores your live website url, mine is `aymanechaaba.vercel.app`
+- We use `@tailwindcss/typography` to style our markdown files using `prose` class.
+
+---
+
+¹. This allows me to write blog posts about any topic I want, and also explain code easily to my readers like writing a documentation.
