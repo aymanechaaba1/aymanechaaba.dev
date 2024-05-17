@@ -695,7 +695,7 @@ export default BlogPostLayout;
 
 2. blog post page:
 
-```tsx title="app/blog/[slug]/page.tsx" {11,88,130}
+```tsx title="app/blog/[slug]/page.tsx" {15,53,84,86,132}
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
@@ -834,8 +834,13 @@ export default function Blog({ params }: { params: { slug: string } }) {
 }
 ```
 
-- `LIVE_URL` is a variable stores your live website url, mine is `aymanechaaba.vercel.app`
-- We use `@tailwindcss/typography` to style our markdown files using `prose` class.
+- `noStore()` to keep the time dynamic.
+- `getBlogPosts()` to get all the blog posts.
+- `generateStaticParams()` to statically generate dynamic routes.
+- `getBlogPosts().find()` to get the corresponding blog post.
+- And finally, we're rendering our blog post using our `CustomMDX` component.
+- `LIVE_URL` is the variable that stores your live website url, mine is `aymanechaaba.vercel.app`
+- We use `@tailwindcss/typography` to style our markdown files.
 
 ---
 
