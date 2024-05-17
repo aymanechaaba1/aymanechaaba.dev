@@ -81,8 +81,16 @@ function formatDate(date: string) {
   }
 }
 
+const blosPosts = getBlogPosts();
+
+export async function generateStaticParams() {
+  return blosPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 export default function Blog({ params }: { params: { slug: string } }) {
-  let post = getBlogPosts().find((post: any) => post.slug === params.slug);
+  let post = blosPosts.find((post: any) => post.slug === params.slug);
 
   if (!post) notFound();
 
