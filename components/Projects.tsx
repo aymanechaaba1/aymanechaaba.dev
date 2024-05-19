@@ -117,14 +117,14 @@ const projects: Project[] = [
 
 function Projects() {
   return (
-    <div className="mt-10">
+    <section className="mt-10">
       <h1 className="ac-heading text-center md:text-left">Projects</h1>
       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5 md:gap-x-5">
         {projects.map((project) => (
           <ProjectPreview key={project.id} project={project} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

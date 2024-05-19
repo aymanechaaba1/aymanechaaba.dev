@@ -1,12 +1,9 @@
 import ContactForm from '@/components/ContactForm';
 import Intro from '@/components/Intro';
 import Projects from '@/components/Projects';
+import Services from '@/components/Services';
 import TechStack from '@/components/TechStack';
 import Testimonials from '@/components/Testimonials';
-import { BackgroundBeams } from '@/components/ui/background-beams';
-import { Separator } from '@/components/ui/separator';
-import { getAge } from '@/lib/utils';
-import Image from 'next/image';
 
 function HomePage() {
   return (
@@ -15,8 +12,11 @@ function HomePage() {
         <Intro />
         <TechStack />
         <Projects />
-        <Testimonials />
-        {/* <BackgroundBeams className="-z-50" /> */}
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center mt-10">
+          <Services />
+          <Testimonials />
+        </div>
+
         <ContactForm />
       </div>
     </>
