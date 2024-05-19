@@ -61,9 +61,23 @@ const teachingServices: S[] = [
     id: uuidv4(),
     description: (
       <p>
-        Explain theory concepts like <strong>Design Patterns</strong>,{' '}
-        <strong>Rendering Patterns</strong>, <strong>React Patterns</strong>,{' '}
-        <strong>Event Loop</strong>.
+        Explain theory concepts like{' '}
+        <strong className="inline bg-gradient-to-r from-lime-500 dark:from-lime-200 dark:via-green-400 dark:to-lime-200 via-green-600 to-lime-500 bg-clip-text font-display tracking-tight text-transparent">
+          Design Patterns
+        </strong>
+        ,{' '}
+        <strong className="inline bg-gradient-to-r from-orange-500 dark:from-orange-200 dark:via-yellow-400 dark:to-orange-200 via-yellow-600 to-orange-400 bg-clip-text font-display tracking-tight text-transparent">
+          Rendering Patterns
+        </strong>
+        ,{' '}
+        <strong className="inline bg-gradient-to-r from-indigo-500 dark:from-indigo-200 dark:via-sky-400 dark:to-indigo-200 via-sky-600 to-indigo-400 bg-clip-text font-display tracking-tight text-transparent">
+          React Patterns
+        </strong>
+        ,{' '}
+        <strong className="inline bg-gradient-to-r from-yellow-500 dark:from-yellow-200 dark:via-amber-400 dark:to-yellow-200 via-amber-500 to-yellow-500 bg-clip-text font-display tracking-tight text-transparent">
+          Event Loop
+        </strong>
+        .
       </p>
     ),
   },
