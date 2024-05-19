@@ -31,15 +31,12 @@ const testimonials: T[] = [
 
 function Testimonials() {
   return (
-    <section className="mt-10 flex flex-col md:flex-row md:items-center md:justify-around">
+    <>
       <h1 className="ac-heading text-center">Testimonials</h1>
       <div className="relative">
-        {/* {testimonials.map((testimonial) => (
-          <Testimonial key={testimonial.id} testimonial={testimonial} />
-        ))} */}
         <TestimonialsStack items={testimonials} />
       </div>
-    </section>
+    </>
   );
 }
 
