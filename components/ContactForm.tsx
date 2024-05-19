@@ -13,7 +13,7 @@ import {
 import { cn, formatBudget, formatLastBudget } from '@/lib/utils';
 import { Textarea } from './ui/textarea';
 import { useFormState, useFormStatus } from 'react-dom';
-import { useEffect, useRef } from 'react';
+import { ElementType, LegacyRef, forwardRef, useEffect, useRef } from 'react';
 import { toast } from 'sonner';
 import { submitForm } from '@/actions/submitForm';
 import { Button as HeadlessBtn, Field, Input } from '@headlessui/react';
@@ -57,11 +57,16 @@ function ContactForm() {
   }, [state]);
 
   return (
-    <section className="flex flex-col md:flex-row md:items-center md:justify-around">
-      <h1 className="ac-heading text-center">Let&apos;s Work Together</h1>
+    <section
+      id="contact"
+      className="flex flex-col md:flex-row md:items-center md:justify-evenly"
+    >
+      <h1 className="ac-heading text-center md:w-1/2">
+        Let&apos;s Work Together
+      </h1>
       <form
         action={formAction}
-        className="my-5 grid grid-cols-1 md:grid-cols-2 gap-4"
+        className="my-5 grid grid-cols-1 md:grid-cols-2 gap-4 md:w-1/2 mx-auto w-full"
         ref={formRef}
       >
         <Field>
@@ -71,6 +76,7 @@ function ContactForm() {
           <Input
             id="firstname"
             name="firstname"
+            autoComplete="off"
             className={cn('headless-input', {
               'border-red-500': state?.errors?.firstname,
             })}
@@ -88,6 +94,7 @@ function ContactForm() {
           <Input
             id="lastname"
             name="lastname"
+            autoComplete="off"
             className={cn('headless-input', {
               'border-red-500': state?.errors?.lastname,
             })}
@@ -105,6 +112,7 @@ function ContactForm() {
           <Input
             id="company_name"
             name="company_name"
+            autoComplete="off"
             className={cn('headless-input', {
               'border-red-500': state?.errors?.company_name,
             })}
@@ -122,6 +130,7 @@ function ContactForm() {
           <Input
             id="email"
             name="email"
+            autoComplete="off"
             className={cn('headless-input', {
               'border-red-500': state?.errors?.email,
             })}
