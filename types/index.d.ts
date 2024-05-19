@@ -49,3 +49,9 @@ export type Testimonial = {
   text: string;
   video?: string;
 };
+
+export type Service = {
+  id: string;
+  description: ReactNode;
+  title?: string;
+};
