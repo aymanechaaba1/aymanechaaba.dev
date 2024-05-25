@@ -6,6 +6,12 @@ import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import { Tweet } from './Tweet';
 import Pre from './Pre';
+import { FaRust } from 'react-icons/fa';
+import { SiBabel } from 'react-icons/si';
+import { FaMeta } from 'react-icons/fa6';
+import { FaReact } from 'react-icons/fa';
+import { RiNextjsFill } from 'react-icons/ri';
+import { cn } from '@/lib/utils';
 
 type Data = {
   headers: any[];
@@ -50,13 +56,34 @@ function CustomLink(props: any) {
 }
 
 function RoundedImage({ alt, ...props }: any) {
-  return <Image alt={alt} className="rounded-lg" {...props} />;
+  return (
+    <div className="flex justify-center">
+      <Image
+        alt={alt}
+        width={500}
+        height={200}
+        className="rounded-lg object-cover mx-auto"
+        {...props}
+      />
+    </div>
+  );
 }
 
-function Callout(props: { emoji: string; children: Readonly<ReactNode> }) {
+function Callout(props: {
+  emoji: ReactNode | string;
+  emojiClassName: string;
+  children: Readonly<ReactNode>;
+}) {
   return (
-    <div className="px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 mb-8">
-      <div className="flex items-center w-4 mr-4">{props.emoji}</div>
+    <div className="px-4 py-3 border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 rounded p-1 text-sm flex items-center text-zinc-900 dark:text-zinc-100 mb-8">
+      <div
+        className={cn(
+          'flex flex-col justify-center items-center w-4 mr-4',
+          props.emojiClassName
+        )}
+      >
+        {props.emoji}
+      </div>
       <div className="w-full callout">{props.children}</div>
     </div>
   );
@@ -64,13 +91,13 @@ function Callout(props: { emoji: string; children: Readonly<ReactNode> }) {
 
 function ProsCard({ title, pros }: { title: string; pros: any[] }) {
   return (
-    <div className="border border-emerald-200 dark:border-emerald-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-4 w-full">
-      <span>{`You might use ${title} if...`}</span>
+    <div className="border border-teal-200 dark:border-teal-900 bg-zinc-50 dark:bg-zinc-900/30 dark:shadow-inner rounded-xl p-6 my-4 w-full">
+      <span>{`You might use ${title} for...`}</span>
       <div className="mt-4">
         {pros.map((pro) => (
           <div key={pro} className="flex font-medium items-baseline mb-2">
             <div className="h-4 w-4 mr-2">
-              <svg className="h-4 w-4 text-emerald-500" viewBox="0 0 24 24">
+              <svg className="h-4 w-4 text-teal-500" viewBox="0 0 24 24">
                 <g
                   fill="none"
                   stroke="currentColor"
@@ -94,7 +121,7 @@ function ProsCard({ title, pros }: { title: string; pros: any[] }) {
 function ConsCard({ title, cons }: { title: string; cons: string[] }) {
   return (
     <div className="border border-red-200 dark:border-red-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-6 w-full">
-      <span>{`You might not use ${title} if...`}</span>
+      <span>{`You might not use ${title} for such reasons...`}</span>
       <div className="mt-4">
         {cons.map((con) => (
           <div key={con} className="flex font-medium items-baseline mb-2">
@@ -122,9 +149,14 @@ let components = {
   Callout,
   ProsCard,
   ConsCard,
-  StaticTweet: Tweet,
+  Tweet,
   Table,
   pre: Pre,
+  FaRust,
+  SiBabel,
+  FaMeta,
+  FaReact,
+  RiNextjsFill,
 };
 
 export function CustomMDX(props: any) {
