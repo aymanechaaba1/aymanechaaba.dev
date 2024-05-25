@@ -1,0 +1,144 @@
+---
+title: 'The New 2024 React Compiler'
+publishedAt: '2024-05-24'
+summary: 'Excited and Skeptical about React Compiler'
+---
+
+- [The Power of this Compiler](#the-power-of-this-compiler)
+- [It's Open Source](#its-open-source)
+- [ESLint Plugin for Easy Debugging](#eslint-plugin-for-easy-debugging)
+- [It's not Perfect Yet](#its-not-perfect-yet)
+- [NextJS Reaction](#nextjs-reaction)
+- [Conclusion](#conclusion)
+
+I just finished watching [React Conf 2024](https://www.youtube.com/@ReactConfOfficial), I want to tell you what this compiler does and what were the main key points mentioned in that conf.
+
+### The Power of this Compiler
+
+`React` automatically re-renders the whole component when state changes, and that's not a good idea.
+
+<Image
+  src="https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/memoize.gif?alt=media&token=75657c4c-7489-4fe5-9bad-2adee2cfb53b"
+  alt="React Compiler"
+/>
+
+This compiler auto-[memoize](https://en.wikipedia.org/wiki/Memoization#:~:text=In%20computing%2C%20memoization%20or%20memoisation,the%20same%20inputs%20occur%20again.) your react code.
+
+<Image
+  src="https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/Screenshot%202024-05-20%20at%202.09.38%20PM.png?alt=media&token=479442ae-ab97-4b02-a750-891697c9df5a"
+  alt="Compiler"
+  width="400"
+  height="100"
+/>
+
+Before, you had to use [useMemo()](https://react.dev/reference/react/useMemo) and [useCallback()](https://react.dev/reference/react/useCallback) but now that compiler does automatically that for you.
+
+<Image
+  src="https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/memoized.gif?alt=media&token=3dee1766-e59e-4b7a-8640-a988c0993a73"
+  alt="Compiler"
+  width="400"
+  height="100"
+/>
+
+<Tweet id="1758229889595977824" />
+
+Honestly, I never liked those hooks and the reality I never used them.
+
+React hears to my instincts and I knew before that manual memoization is very hard in large scale projects.
+
+<ProsCard
+  title="React Compiler"
+  pros={[
+    'Dead Code Elimination',
+    'Fewer Lines',
+    'Better Performance',
+    'Faster Apps',
+    'Skipping re-renders',
+    'Skipping Expensive Calculations',
+  ]}
+/>
+
+<Tweet id="1791187579053932694" />
+
+It's a good practice to see the compiled react code to understand the logic behind that compiler, Go to [React Playground](https://playground.react.dev/)
+
+<Image
+  src="https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/compiler.gif?alt=media&token=b6ad24e3-1a9f-4a64-af69-0bc1e1e19bda"
+  alt="React Compiler"
+/>
+
+[Mofei](https://x.com/zmofei) showed that the compiler does auto memoization but not actually by adding `useMemo()`s, that's just for readability.
+
+[Jack](https://www.youtube.com/watch?v=PYHBHK37xlE) explained it very well too and he showed a deep dive into how the compiler process your react code and how it creates an array of slots into chunks of nodes and find what static and what's dynamic and what has to be memoized to avoid unecessary re-renders.
+
+Meta has been using this
+compiler for over a year now for Instagram web version and Quest apps and this is
+what they recognized in terms of performance:
+
+<Image
+  src="https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/Screenshot%202024-05-20%20at%202.22.05%20PM.png?alt=media&token=360be72a-cf3b-4869-8957-6759cda7829a"
+  alt="Insta React Compiler Performance"
+/>
+
+### It's Open Source
+
+React Compiler is Now Open Source, Give it a Try:
+
+```bash
+npm i babel-plugin-react-compiler --save-exact
+```
+
+### ESLint Plugin for Easy Debugging
+
+React Compiler comes with an ESLint plugin to easy debug your code, it is well trained on the [The Rules of React](https://react.dev/reference/rules), make sure you write well-written code to get the full benefits:
+
+```bash
+npm i eslint-plugin-react-compiler --save-exact
+```
+
+### It's not Perfect Yet
+
+<ConsCard
+  title="React Compiler"
+  cons={[
+    'Only supports Babel',
+    'Extensive Memory Usage',
+    'not compatible with MobX',
+  ]}
+/>
+
+- As of now, React Compiler only supports Babel and the React Core Team is working on to support SWC for <FaRust className="inline align-middle" /> lovers.
+
+### NextJS Reaction
+
+[NextJS 15 RC](https://nextjs.org/blog/next-15-rc) was announced yesterday with:
+
+<Callout emoji={<FaReact />} emojiClassName="text-teal-500">
+  Support for the React 19 RC, React Compiler (Experimental), and hydration
+  error improvements
+</Callout>
+
+```bash
+npm install next@rc react@rc react-dom@rc
+```
+
+```ts title="next.config.ts" {3}
+const nextConfig = {
+  experimental: {
+    reactCompiler: true,
+  },
+};
+
+module.exports = nextConfig;
+```
+
+<Callout emoji={'⚠️'} emojiClassName="text-yellow-500">
+  The React Compiler is currently only possible to use in Next.js through a
+  Babel plugin, which could result in slower build times.
+</Callout>
+
+### Conclusion
+
+React Compiler opens the door to so many opportunities to many more optimization techniques for well-written efficient maintainable scalable code by default optimized for better performance and faster apps with fewer lines of code.
+
+To learn more, Go to [React Compiler Doc](https://react.dev/learn/react-compiler).

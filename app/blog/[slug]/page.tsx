@@ -81,16 +81,8 @@ function formatDate(date: string) {
   }
 }
 
-const blosPosts = getBlogPosts();
-
-export async function generateStaticParams() {
-  return blosPosts.map((post) => ({
-    slug: post.slug,
-  }));
-}
-
 export default function Blog({ params }: { params: { slug: string } }) {
-  let post = blosPosts.find((post: any) => post.slug === params.slug);
+  let post = getBlogPosts().find((post: any) => post.slug === params.slug);
 
   if (!post) notFound();
 
@@ -121,6 +113,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
       <h1 className="title font-medium text-2xl tracking-tighter">
         {post.metadata.title}
       </h1>
+      <p className="dark:text-zinc-400">{post.metadata.summary}</p>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm">
         <Suspense fallback={<Loader2 className="animate-spin" />}>
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
