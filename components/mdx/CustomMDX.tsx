@@ -59,6 +59,7 @@ function RoundedImage({ alt, ...props }: any) {
   return (
     <div className="flex justify-center">
       <Image
+        priority
         alt={alt}
         width={500}
         height={200}
