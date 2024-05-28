@@ -1,4 +1,7 @@
 const nextConfig = {
+  experimental: {
+    ppr: true,
+  },
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: {
     remotePatterns: [
