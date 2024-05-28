@@ -7,4 +7,4 @@ export const OOF_GRAD = `bg-gradient-to-br from-rose-200 to-rose-200/30 bg-clip-
 export const onBoardingEventUrl =
   'https://calendly.com/aymanechaaba1/onboarding';
 export const BRIAN_VIDEO =
-  'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/Sequence%2001_3.mp4?alt=media&token=bf8b57bd-c98e-4e08-b410-03affd937b19';
+  'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/Sequence%2001_4.mp4?alt=media&token=83ccd7fa-7953-4f19-8075-7622742c538c';
