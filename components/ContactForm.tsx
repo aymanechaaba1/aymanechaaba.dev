@@ -59,7 +59,7 @@ function ContactForm() {
   return (
     <section
       id="contact"
-      className="flex flex-col md:flex-row md:items-center md:justify-evenly"
+      className="flex flex-col md:flex-row md:items-center md:justify-evenly mt-10"
     >
       <h1 className="ac-heading text-center md:w-1/2">
         Let&apos;s Work Together

@@ -1,11 +1,17 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
-import { unstable_noStore as noStore } from 'next/cache';
+import {
+  unstable_noStore as noStore,
+  unstable_cache,
+  unstable_noStore,
+} from 'next/cache';
 import { getBlogPosts } from '@/app/db/blog';
 import { LIVE_URL } from '@/config';
-import { Loader2 } from 'lucide-react';
 import { CustomMDX } from '@/components/mdx/CustomMDX';
+import ViewCounter from '@/components/mdx/ViewCounter';
+import { Loader2 } from 'lucide-react';
+import { cookies } from 'next/headers';
 
 export async function generateMetadata({
   params,
@@ -81,7 +87,7 @@ function formatDate(date: string) {
   }
 }
 
-export default function Blog({ params }: { params: { slug: string } }) {
+export default async function Blog({ params }: { params: { slug: string } }) {
   let post = getBlogPosts().find((post: any) => post.slug === params.slug);
 
   if (!post) notFound();
@@ -115,10 +121,17 @@ export default function Blog({ params }: { params: { slug: string } }) {
       </h1>
       <p className="dark:text-zinc-400">{post.metadata.summary}</p>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <Suspense fallback={<Loader2 className="animate-spin" />}>
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            {formatDate(post.metadata.publishedAt)}
-          </p>
+        <Suspense
+          fallback={
+            <Loader2 className="animate-spin text-zinc-500" size={15} />
+          }
+        >
+          <PublishedAt publishedAt={post.metadata.publishedAt} />
+        </Suspense>
+        <Suspense
+          fallback={<Loader2 className="animate-spin text-zin-500" size={15} />}
+        >
+          <Views slug={params.slug} />
         </Suspense>
       </div>
       <article className="prose prose-zinc dark:prose-invert prose-pre:bg-zinc-100 dark:prose-pre:!bg-zinc-900 prose-pre:rounded-t-none">
@@ -126,4 +139,24 @@ export default function Blog({ params }: { params: { slug: string } }) {
       </article>
     </section>
   );
+}
+
+function PublishedAt({ publishedAt }: { publishedAt: string }) {
+  unstable_noStore();
+  return (
+    <p className="text-sm text-neutral-600 dark:text-neutral-400">
+      {formatDate(publishedAt)}
+    </p>
+  );
+}
+
+async function Views({ slug }: { slug: string }) {
+  unstable_noStore();
+  const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
+    cache: 'no-store',
+  });
+
+  const { views } = await res.json();
+
+  return <ViewCounter views={views} />;
 }

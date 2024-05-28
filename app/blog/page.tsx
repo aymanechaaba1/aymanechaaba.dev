@@ -3,6 +3,9 @@ import { getBlogPosts } from '../db/blog';
 import Link from 'next/link';
 import { getViewsCount } from '../db/queries';
 import ViewCounter from '@/components/mdx/ViewCounter';
+import { getViews } from '@/actions/getViews';
+import { unstable_noStore } from 'next/cache';
+import { Loader2 } from 'lucide-react';
 
 export const metadata = {
   title: 'Blog',
@@ -40,7 +43,11 @@ function BlogPage() {
                 <p className="text-neutral-900 dark:text-neutral-100 tracking-tight font-medium">
                   {post.metadata.title}
                 </p>
-                <Suspense fallback={<p className="h-6" />}>
+                <Suspense
+                  fallback={
+                    <Loader2 className="animate-spin text-zin-500" size={15} />
+                  }
+                >
                   <Views slug={post.slug} />
                 </Suspense>
               </div>
@@ -52,9 +59,10 @@ function BlogPage() {
 }
 
 async function Views({ slug }: { slug: string }) {
-  let views = await getViewsCount();
+  unstable_noStore();
+  let views = await getViews({ slug });
 
-  return <ViewCounter allViews={views} slug={slug} />;
+  return <ViewCounter views={views} />;
 }
 
 export default BlogPage;
