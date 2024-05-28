@@ -152,12 +152,9 @@ function PublishedAt({ publishedAt }: { publishedAt: string }) {
 
 async function Views({ slug }: { slug: string }) {
   unstable_noStore();
-  const res = await fetch(
-    `https://${process.env.VERCEL_URL}/api/blog/${slug}`,
-    {
-      cache: 'no-store',
-    }
-  );
+  const res = await fetch(`https://${LIVE_URL}/api/blog/${slug}`, {
+    cache: 'no-store',
+  });
 
   const { views } = await res.json();
 
