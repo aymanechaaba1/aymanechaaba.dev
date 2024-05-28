@@ -6,9 +6,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { IoIosPlay, IoIosVideocam } from 'react-icons/io';
 import HeadlessDialog from '../HeadlessDialog';
-import Video from 'next-video';
 import ReactPlayer from 'react-player';
 import brian from '@/videos/Snapinsta.app_video_6C421E4E0E80602D639A17161B85C9B2_video_dashinit.mp4';
+import Video from '../Video';
 
 let interval: any;
 
@@ -57,20 +57,6 @@ export const TestimonialsStack = ({
             }}
           >
             <div className="zinc-ring-shadow flex flex-col items-stretch w-full container py-4 gap-4 rounded-lg">
-              {testimonial.video && (
-                <HeadlessDialog buttonLabel={<IoIosPlay />} dialogTitle="">
-                  <div className="flex overflow-hidden rounded-2xl h-[700px]">
-                    <Video
-                      src={brian}
-                      title="Brian - Survival Gear BSO"
-                      className="rounded-xl w-full"
-                      accentColor="#09090b"
-                      muted
-                      autoPlay
-                    />
-                  </div>
-                </HeadlessDialog>
-              )}
               <div className="flex items-center">
                 <div className="flex items-center gap-x-2">
                   <span className="text-sm md:text-base">
