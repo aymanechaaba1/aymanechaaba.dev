@@ -2,6 +2,9 @@ import { Testimonial as T } from '@/types';
 import { v4 as uuidv4 } from 'uuid';
 import Testimonial from './Testimonial';
 import { TestimonialsStack } from './ui/TestimonialsStack';
+import VideoWrapper from './VideoWrapper';
+import Video from './Video';
+import { BRIAN_VIDEO } from '@/config';
 
 const testimonials: T[] = [
   {
@@ -25,7 +28,7 @@ const testimonials: T[] = [
     logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2F345877547_1426841894717602_6459520702394060510_n.jpg?alt=media&token=10d65da8-8015-443b-b2db-3cfeb8df2129',
     text: "Aymane was really great with us, anything we asked him to do, he's pretty much been able to do it, the turnaround time was fantastic! Our speed score like went through the roof.",
     website: 'https://www.survivalgear.us',
-    video: '',
+    video: BRIAN_VIDEO,
   },
 ];
 
@@ -34,7 +37,11 @@ function Testimonials() {
     <>
       <h1 className="ac-heading text-center">Testimonials</h1>
       <div className="relative">
-        <TestimonialsStack items={testimonials} />
+        <Video
+          className="block h-[600px] w-[500px] border rounded-2xl mx-auto my-5"
+          src={BRIAN_VIDEO}
+        />
+        {/* <TestimonialsStack items={testimonials} /> */}
       </div>
     </>
   );
