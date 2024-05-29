@@ -5,6 +5,10 @@ import { TestimonialsStack } from './ui/TestimonialsStack';
 import VideoWrapper from './VideoWrapper';
 import Video from './Video';
 import { BRIAN_VIDEO } from '@/config';
+import { getDownloadURL, ref } from 'firebase/storage';
+import { storage } from '@/lib/firebase';
+import { Suspense } from 'react';
+import { Loader2 } from 'lucide-react';
 
 const testimonials: T[] = [
   {
@@ -37,10 +41,9 @@ function Testimonials() {
     <>
       <h1 className="ac-heading text-center">Testimonials</h1>
       <div className="relative">
-        <Video
-          className="block h-[600px] w-[500px] border rounded-2xl mx-auto my-5"
-          src={BRIAN_VIDEO}
-        />
+        <Suspense fallback={<Loader2 className="animate-spin text-center" />}>
+          <CustomVideo />
+        </Suspense>
         {/* <TestimonialsStack items={testimonials} /> */}
       </div>
     </>
@@ -48,3 +51,11 @@ function Testimonials() {
 }
 
 export default Testimonials;
+
+async function CustomVideo() {
+  let pathRef = ref(storage, 'Sequence 04.mp4');
+
+  let url = await getDownloadURL(pathRef);
+
+  return <Video src={url} />;
+}
