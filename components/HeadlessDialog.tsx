@@ -9,7 +9,7 @@ import {
   Transition,
   TransitionChild,
 } from '@headlessui/react';
-import { type ReactNode, useState } from 'react';
+import { Dispatch, type ReactNode, SetStateAction, useState } from 'react';
 
 function HeadlessDialog({
   buttonLabel,
@@ -17,34 +17,32 @@ function HeadlessDialog({
   dialogTitle,
   children,
   className,
+  isOpen,
+  setIsOpen,
 }: {
   buttonLabel: string | ReactNode;
-  dialogTitle: string;
+  dialogTitle?: string;
   children: Readonly<ReactNode>;
   buttonClassName?: string;
   className?: string;
+  isOpen: boolean | false;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) {
-  let [isOpen, setIsOpen] = useState(false);
-
-  function open() {
-    setIsOpen(true);
-  }
-
-  function close() {
-    setIsOpen(false);
-  }
-
   return (
     <>
-      <Button onClick={open} className={cn('outline-none', buttonClassName)}>
+      <div
+        onClick={() => setIsOpen(true)}
+        className={cn('outline-none cursor-pointer', buttonClassName)}
+      >
         {buttonLabel}
-      </Button>
+      </div>
 
       <Transition appear show={isOpen}>
         <Dialog
           as="div"
           className="relative z-10 focus:outline-none"
-          onClose={close}
+          open={isOpen}
+          onClose={() => setIsOpen(false)}
         >
           <div
             className={cn(

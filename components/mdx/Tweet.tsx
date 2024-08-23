@@ -31,7 +31,7 @@ const TweetContent = async ({ id }: { id: string }) => {
   }
 };
 
-export async function Tweet({ id }: { id: string }) {
+export async function Tweet({ id, alt }: { id: string; alt?: string }) {
   return (
     <Suspense fallback={<TweetSkeleton />}>
       <div className="tweet not-prose flex justify-center">

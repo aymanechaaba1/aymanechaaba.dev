@@ -8,7 +8,7 @@ import Testimonials from '@/components/Testimonials';
 function HomePage() {
   return (
     <>
-      <div className="my-10">
+      <div className="my-10 container">
         <Intro />
         <TechStack />
         <Projects />
