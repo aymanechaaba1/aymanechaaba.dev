@@ -26,6 +26,9 @@ const nextConfig = {
       { hostname: 'yt3.ggpht.com' },
     ],
   },
+  compiler: {
+    styledComponents: true,
+  },
   transpilePackages: ['next-mdx-remote', 'react-tweet'],
   reactStrictMode: true,
 };

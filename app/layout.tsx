@@ -15,6 +15,7 @@ import Header from '@/components/Header';
 import Timer from '@/components/Timer';
 import { Button } from '@headlessui/react';
 import Link from 'next/link';
+import StyledComponentsRegistry from '@/lib/registry';
 
 export const fontSans = FontSans({
   subsets: ['latin'],
@@ -89,7 +90,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* <div className="w-full backdrop-blur sticky bg-gray-200/30 dark:bg-gray-800/30 flex items-center px-4 justify-center gap-x-5">
+          <StyledComponentsRegistry>
+            {/* <div className="w-full backdrop-blur sticky bg-gray-200/30 dark:bg-gray-800/30 flex items-center px-4 justify-center gap-x-5">
             <div className="my-2 w-1/2">
               <h4 className="font-semibold text-md">5 Day SaaS CHALLENGE</h4>
               <Link href={`/challenge`}>
@@ -103,12 +105,13 @@ export default function RootLayout({
             </div>
             <Timer pSize={1} textSize="md" />
           </div> */}
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-          <Toaster />
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <Analytics />
+            <SpeedInsights />
+            <Toaster />
+          </StyledComponentsRegistry>
         </ThemeProvider>
       </body>
     </html>

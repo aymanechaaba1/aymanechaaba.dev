@@ -2,8 +2,6 @@
 
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
-import { IoCheckmarkCircleSharp } from 'react-icons/io5';
 
 const StyledCard = styled.div`
   background: linear-gradient(
