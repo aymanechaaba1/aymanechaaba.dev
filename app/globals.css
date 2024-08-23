@@ -164,3 +164,41 @@
     }
   }
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.logo-scroll {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 90%,
+    transparent
+  );
+}
+
+.review {
+  scroll-snap-type: x mandatory;
+  scroll-snap-align: center;
+}
+
+.snappy {
+  scroll-snap-type: x mandatory;
+}
+
+.tri-path {
+  clip-path: polygon(31% 52%, 0 0, 0 100%);
+}
+
+.tri-path-reverse {
+  clip-path: polygon(59% 50%, 100% 0, 100% 100%);
+}
+
+.transition-colors {
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+}
