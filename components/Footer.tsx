@@ -3,7 +3,7 @@ import GithubIcon from './icons/GithubIcon';
 import TwitterIcon from './icons/TwitterIcon';
 import { Separator } from './ui/separator';
 import { LuExternalLink } from 'react-icons/lu';
-import { FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaTwitter, FaWhatsapp } from 'react-icons/fa';
 
 const GITHUB_URL = `https://github.com/aymanechaaba1`;
 const TWITTER_URL = `https://twitter.com/aymanedev`;
@@ -43,7 +43,8 @@ function Footer() {
               className="align-middle flex items-center gap-x-1 hover:text-gray-200 transition-colors"
               target="_blank"
             >
-              +212 643868818 <LuExternalLink size={13} className="" />
+              +212 643 86 88 18 <LuExternalLink size={13} className="" />
+              <FaWhatsapp size={13} />
             </Link>
             <p className="">contact@aymanechaaba.dev</p>
           </div>
