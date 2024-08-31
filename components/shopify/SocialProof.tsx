@@ -19,6 +19,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://www.survivalgear.us/cdn/shop/files/logo_8aacd8c9-3570-438f-9578-3aef12909b20_100x@2x.png?v=1631644190',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -44,6 +45,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'Australia 🇦🇺',
   },
   {
     id: uuidv4(),
@@ -57,6 +59,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -70,6 +73,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -83,6 +87,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -96,6 +101,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United Kingdom 🇬🇬',
   },
   {
     id: uuidv4(),
@@ -108,6 +114,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United Kingdom 🇬🇬',
   },
   {
     id: uuidv4(),
@@ -121,6 +128,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -135,6 +143,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -148,6 +157,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United Kingdom 🇬🇧',
   },
   {
     id: uuidv4(),
@@ -161,6 +171,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -174,6 +185,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -187,6 +199,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -200,6 +213,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -213,6 +227,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'Pakistan 🇵🇰',
   },
   {
     id: uuidv4(),
@@ -226,6 +241,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -239,6 +255,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -252,6 +269,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United Kingdom 🇬🇬',
   },
   {
     id: uuidv4(),
@@ -265,6 +283,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'Australia 🇦🇺',
   },
   {
     id: uuidv4(),
@@ -278,6 +297,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'Canada 🇨🇦',
   },
   {
     id: uuidv4(),
@@ -291,6 +311,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -304,6 +325,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -317,6 +339,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -330,6 +353,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'Canada 🇨🇦',
   },
   {
     id: uuidv4(),
@@ -343,6 +367,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'Spain 🇪🇸',
   },
   {
     id: uuidv4(),
@@ -356,6 +381,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -369,6 +395,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
   {
     id: uuidv4(),
@@ -382,6 +409,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'Australia 🇦🇺',
   },
   {
     id: uuidv4(),
@@ -394,6 +422,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United Kingdom 🇬🇧',
   },
   {
     id: uuidv4(),
@@ -407,6 +436,7 @@ export let reviews: ReviewType[] = [
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
     },
     role: 'Founder & CEO',
+    country: 'United States 🇺🇸',
   },
 ];
 

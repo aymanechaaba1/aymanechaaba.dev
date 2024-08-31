@@ -114,18 +114,13 @@ async function ShopifyPage() {
   return (
     <div className="">
       <h1 className="text-center text-3xl tracking-tight leading-0 scroll-m-20 font-semibold container">
-        I will build a{' '}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-500">
-          Shopify
+        <span className="bg-gradient-to-r bg-clip-text text-transparent from-teal-300 to-teal-600">
+          Successfull
         </span>{' '}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-teal-500">
-          Dropshipping
+        eCommerce business starts with a{' '}
+        <span className="bg-gradient-to-r bg-clip-text text-transparent from-teal-300 to-teal-600">
+          High Converting Store
         </span>
-        /
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-500">
-          Brand
-        </span>{' '}
-        store for You
       </h1>
       {/* Results */}
       <Suspense fallback={<StoreRecordingsLoading />}>
@@ -134,15 +129,15 @@ async function ShopifyPage() {
       {/* <BookNowBtn /> */}
       <div className="container"></div>
       <div className="w-full flex items-center gap-x-5 justify-center my-5 container">
-        <div className="rounded-[9999px] shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.04),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.4),_0px_2px_4px_rgb(0_0_0_/_0.08),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.24)] dark:bg-gray-900 p-5 w-[120px] h-[120px] flex flex-col items-center justify-center text-3xl font-semibold ring ring-emerald-500/80">
+        <div className="rounded-[9999px] shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.04),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.4),_0px_2px_4px_rgb(0_0_0_/_0.08),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.24)] dark:bg-gray-900 p-5 w-[120px] h-[120px] flex flex-col items-center justify-center text-3xl font-semibold ring ring-teal-500/80">
           100
           <p className="text-center text-sm text-gray-400">Performance</p>
         </div>
-        <div className="rounded-[9999px] shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.08),_0px_1px_2px_rgb(0_0_0_/_0.5),_0px_2px_4px_rgb(0_0_0_/_0.12),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.32)] dark:bg-gray-900 p-5 w-[120px] h-[120px] flex flex-col items-center justify-center text-3xl font-semibold ring ring-emerald-500">
+        <div className="rounded-[9999px] shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.08),_0px_1px_2px_rgb(0_0_0_/_0.5),_0px_2px_4px_rgb(0_0_0_/_0.12),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.32)] dark:bg-gray-900 p-5 w-[120px] h-[120px] flex flex-col items-center justify-center text-3xl font-semibold ring ring-teal-500">
           100
           <p className="text-center text-sm text-gray-400 uppercase">SEO</p>
         </div>
-        <div className="rounded-[9999px] shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.08),_0px_1px_2px_rgb(0_0_0_/_0.5),_0px_2px_4px_rgb(0_0_0_/_0.12),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.32)] dark:bg-gray-900 p-5 w-[120px] h-[120px] flex flex-col items-center justify-center text-3xl font-semibold ring ring-emerald-500">
+        <div className="rounded-[9999px] shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.08),_0px_1px_2px_rgb(0_0_0_/_0.5),_0px_2px_4px_rgb(0_0_0_/_0.12),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.32)] dark:bg-gray-900 p-5 w-[120px] h-[120px] flex flex-col items-center justify-center text-3xl font-semibold ring ring-teal-500">
           {'0-2s'}
           <p className="text-center text-sm text-gray-400">Speed</p>
         </div>
@@ -191,14 +186,19 @@ async function ShopifyPage() {
       </div>
       {/* Offer */}
       <Offer />
-      <div className="grid grid-cols-1 place-content-center place-items-center gap-4 w-full my-5">
-        <Image
-          src="/shopify_partners_logo.webp"
-          alt=""
-          width={150}
-          height={100}
-          className="bg-cover"
-        />
+      <div className="mx-auto max-w-[250px] mb-5">
+        <div className="w-full h-[50px] bg-gray-900 flex justify-center items-center rounded-t-md">
+          <Image
+            src="/shopify_partners_logo.webp"
+            alt=""
+            width={200}
+            height={100}
+            className="bg-cover"
+          />
+        </div>
+        <div className="w-full h-auto py-1 font-semibold text-gray-200 mt-1 bg-gray-900 flex justify-center items-center rounded-b-md uppercase">
+          Certified Partner
+        </div>
       </div>
     </div>
   );

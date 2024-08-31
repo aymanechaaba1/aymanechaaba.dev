@@ -42,7 +42,7 @@ function Reviews({ reviews }: { reviews: ReviewType[] }) {
                     <div>
                       <p className="">{review.fullName}</p>
                       <p className="text-sm dark:text-gray-200">
-                        {review.role}
+                        {review.country}
                       </p>
                     </div>
                   </div>
@@ -84,7 +84,7 @@ function Reviews({ reviews }: { reviews: ReviewType[] }) {
                     <div>
                       <p className="">{review.fullName}</p>
                       <p className="text-sm dark:text-gray-200">
-                        {review.role}
+                        {review.country}
                       </p>
                     </div>
                   </div>
@@ -126,7 +126,7 @@ function Reviews({ reviews }: { reviews: ReviewType[] }) {
                     <div>
                       <p className="">{review.fullName}</p>
                       <p className="text-sm dark:text-gray-200">
-                        {review.role}
+                        {review.country}
                       </p>
                     </div>
                   </div>

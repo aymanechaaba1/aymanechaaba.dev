@@ -27,16 +27,19 @@ function Authority() {
               experience.
             </p>
             <p>
-              I do also optimize for core web vitals to make the store as
-              performant as possible.
+              I do also optimize for <strong>core web vitals</strong> to make
+              the store as performant as possible.
             </p>
             <p>
-              I&apos;ve worked with clients over America, Australia gaining
-              trust by my honest and hard working soul during the project.
+              I&apos;ve worked with clients from{' '}
+              <strong>all over the world gaining</strong> trust by my honest and
+              hard working soul during the project.
             </p>
             <p>
-              I apply skills from Web Design, Web Development and Shopify to
-              achieve a unique customer experience related to your brand.
+              I apply skills from Web Design, Web Development and Shopify to{' '}
+              <strong>
+                achieve a unique customer experience related to your brand.
+              </strong>
             </p>
           </div>
         </div>
