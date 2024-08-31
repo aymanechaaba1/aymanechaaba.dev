@@ -31,6 +31,12 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: [
     'Next.js',
+    'Shopify Developer',
+    'Shopify Designer',
+    'Shopify Expert',
+    'Shopify Website',
+    'Shopify Redesign',
+    'Shopify Dropshipping',
     'React',
     'Tailwind CSS',
     'Server Components',
@@ -69,7 +75,7 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
-  metadataBase: new URL('https://aymanechaaba.vercel.app'),
+  metadataBase: new URL('https://aymanechaaba.dev'),
 };
 
 export default function RootLayout({
@@ -114,26 +120,6 @@ export default function RootLayout({
             <SpeedInsights />
             <Toaster />
           </StyledComponentsRegistry>
-          {/* <div className="w-full backdrop-blur sticky bg-gray-200/30 dark:bg-gray-800/30 flex items-center px-4 justify-center gap-x-5">
-            <div className="my-2 w-1/2">
-              <h4 className="font-semibold text-md">5 Day SaaS CHALLENGE</h4>
-              <Link href={`/challenge`}>
-                <Button
-                  type="button"
-                  className="inline-flex w-full items-center gap-2 rounded-md bg-emerald-700 text-center justify-center uppercase py-1.5 px-3 font-bold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-emerald-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white"
-                >
-                  Learn More
-                </Button>
-              </Link>
-            </div>
-            <Timer pSize={1} textSize="md" />
-          </div> */}
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-          <Toaster />
         </ThemeProvider>
       </body>
     </html>
