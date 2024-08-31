@@ -1,0 +1,52 @@
+.cls-1 {
+  fill: url(#linear-gradient);
+}
+
+.cls-1,
+.cls-2,
+.cls-3,
+.cls-4,
+.cls-5 {
+  stroke-width: 0px;
+}
+
+.cls-6 {
+  letter-spacing: -0.05em;
+}
+
+.cls-7 {
+  font-family: Inter-Black, Inter;
+  font-size: 27.98px;
+  font-variation-settings: 'opsz' 14, 'wght' 900;
+  font-weight: 800;
+}
+
+.cls-7,
+.cls-5 {
+  fill: #fff;
+}
+
+.cls-8 {
+  letter-spacing: 0em;
+}
+
+.cls-2 {
+  fill: url(#linear-gradient-4);
+}
+
+.cls-3 {
+  fill: url(#linear-gradient-2);
+}
+
+.cls-4 {
+  fill: url(#linear-gradient-3);
+}
+
+.cls-9 {
+  isolation: isolate;
+}
+
+.cls-10 {
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+}
