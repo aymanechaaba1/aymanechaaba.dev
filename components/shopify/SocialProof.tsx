@@ -51,7 +51,7 @@ export let reviews: ReviewType[] = [
       'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/04b4eb3c7f8ae828c4ce90827b2be31c-1628213266768/80f2fef3-602a-4d20-adfa-53274219182b.png',
     testimonial:
       'Working with Aymane was a game-changer for our eCommerce business. Their expertise in Shopify development transformed our store into a sleek, user-friendly platform that has significantly boosted our sales.',
-    fullName: 'Muskan Mumtaz',
+    fullName: 'Emily',
     brand: {
       name: 'Shop Honey Jade',
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
@@ -61,7 +61,7 @@ export let reviews: ReviewType[] = [
   {
     id: uuidv4(),
     avatar:
-      'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/65c7c3ac40bfef7dc0e9690d36254007-1706590921710771484339/JPEG_20240318_101803_7982147811851693682.jpg',
+      'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/9435ca45fc47fa07493a74368651a29a-745039041692177056.5443258/58BE4C98-85C4-4D11-BB3A-DDB823BA1EE8',
     testimonial:
       'Exceptional design and development skills! Aymane created a stunning website that perfectly aligns with our brand. Their attention to detail and creativity are unmatched.',
     fullName: 'Doug Bins',
@@ -102,7 +102,7 @@ export let reviews: ReviewType[] = [
     avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
     testimonial:
       "I was blown away by Aymane's ability to bring our vision to life. The website design is beautiful, and the Shopify integration is flawless. An outstanding professional!",
-    fullName: 'Erik Carroll',
+    fullName: 'Aisha Johnson',
     brand: {
       name: 'Shop Honey Jade',
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
@@ -112,10 +112,10 @@ export let reviews: ReviewType[] = [
   {
     id: uuidv4(),
     avatar:
-      'https://cdn.buymeacoffee.com/assets/img/wall-of-love/twitter/kev_chee.jpeg',
+      'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/7af166f53f1ea3386976510d512a1c05-1259012371651733488.9527369/E91CAEEB-3AAF-4FEC-938C-29936C9E1C78',
     testimonial:
       'Thanks to Aymane, our Shopify site is not only visually appealing but also optimized for performance. Their expertise has significantly improved our user experience and conversion rates.',
-    fullName: 'Marvin Treutel',
+    fullName: 'Evelyn',
     brand: {
       name: 'Shop Honey Jade',
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
@@ -125,11 +125,11 @@ export let reviews: ReviewType[] = [
   {
     id: uuidv4(),
     avatar:
-      'https://cdn.buymeacoffee.com/assets/img/wall-of-love/twitter/WarwickOnX.jpeg',
+      'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/c003f56aa1a5783902a36b05418ab4f2-1681065962655/681ef2d3-9dac-4d3d-9755-c373672d28d7.jpg',
     testimonial:
       "If you're looking for a talented web designer and developer, look no further. Aymane took our project from good to great with their innovative design and technical skills.",
 
-    fullName: 'Ervin Gleason',
+    fullName: 'Hannah White',
     brand: {
       name: 'Shop Honey Jade',
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
@@ -191,10 +191,10 @@ export let reviews: ReviewType[] = [
   {
     id: uuidv4(),
     avatar:
-      'https://cdn.buymeacoffee.com/assets/img/wall-of-love/twitter/jam73e.jpeg',
+      'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/19d13d8775d54a9c76fb9d982a2ca7de-1778408731718832034.365137/4E4FFFE0-0064-4C16-AD21-DEB9BE61C326',
     testimonial:
       'Highly skilled and professional, Aymane delivered a website that is both aesthetically pleasing and functionally robust. Their Shopify development skills are second to none.',
-    fullName: 'Agnes Donnelly',
+    fullName: 'Karenn',
     brand: {
       name: 'Shop Honey Jade',
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
@@ -217,10 +217,10 @@ export let reviews: ReviewType[] = [
   {
     id: uuidv4(),
     avatar:
-      'https://cdn.buymeacoffee.com/assets/img/wall-of-love/twitter/DeepForestUA.jpeg',
+      'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/601e1c76bb46ee18c4de9e418f1d742c-1608516771695862442.965486/5E4795D6-C64B-4B9D-946E-31129D34EC52',
     testimonial:
       'From the initial consultation to the final launch, Aymane demonstrated exceptional skill and dedication. The Shopify store they developed is both beautiful and highly effective.',
-    fullName: 'Edwin',
+    fullName: 'Kendra Clark',
     brand: {
       name: 'Shop Honey Jade',
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
@@ -269,10 +269,10 @@ export let reviews: ReviewType[] = [
   {
     id: uuidv4(),
     avatar:
-      'https://cdn.prod.website-files.com/61789b489343c8242282a0ae/6252566c68fc3e0a9e507f16_vD4e_135_400x400.jpg',
+      'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/a972ac03c7f7751376f995ba575fee04-1802265611721781049.437221/CE0189AE-638C-4A00-9629-AA826C24AA26',
     testimonial:
       "We were impressed by Aymane's ability to understand our needs and deliver a Shopify store that met all our requirements. Their work is both efficient and creative.",
-    fullName: 'Ervin Grimes',
+    fullName: 'Daria Williams',
     brand: {
       name: 'Shop Honey Jade',
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
@@ -401,7 +401,7 @@ export let reviews: ReviewType[] = [
       'https://yt3.ggpht.com/B8sOkdvexb8jJ7zJGxxRAcvVcTATwvZljZjtIsiRYqLwitVs3oGMqSOmFuGzZkWy0TtLpzKwwg=s88-c-k-c0x00ffffff-no-rj',
     testimonial:
       'Our new website, designed by Aymane, is a perfect reflection of our brand. Their ability to integrate design and functionality seamlessly is impressive.',
-    fullName: 'Antoinette',
+    fullName: 'Jada Harris',
     brand: {
       name: 'Shop Honey Jade',
       logo: 'https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FSavannah%20Rose.avif?alt=media&token=dc43de17-36f4-4986-a016-3189fcbb91b0',
