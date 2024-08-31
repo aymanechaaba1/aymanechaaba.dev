@@ -5,7 +5,6 @@ import { Inter as FontSans } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
 import { Toaster } from '@/components/ui/sonner';
-import Footer from '@/components/Footer';
 import { GeistSans } from 'geist/font/sans';
 import { siteConfig } from '@/config/siteConfig';
 import { Analytics } from '@vercel/analytics/react';
@@ -16,6 +15,8 @@ import Timer from '@/components/Timer';
 import { Button } from '@headlessui/react';
 import Link from 'next/link';
 import StyledComponentsRegistry from '@/lib/registry';
+import './(css)/alert.css';
+import Footer from '@/components/Footer';
 
 export const fontSans = FontSans({
   subsets: ['latin'],
@@ -81,6 +82,7 @@ export default function RootLayout({
       <body
         className={cn(
           'min-h-screen font-sans antialiased flex flex-col',
+          'min-h-screen font-sans antialiased flex flex-col',
           GeistSans.className
         )}
       >
@@ -112,6 +114,26 @@ export default function RootLayout({
             <SpeedInsights />
             <Toaster />
           </StyledComponentsRegistry>
+          {/* <div className="w-full backdrop-blur sticky bg-gray-200/30 dark:bg-gray-800/30 flex items-center px-4 justify-center gap-x-5">
+            <div className="my-2 w-1/2">
+              <h4 className="font-semibold text-md">5 Day SaaS CHALLENGE</h4>
+              <Link href={`/challenge`}>
+                <Button
+                  type="button"
+                  className="inline-flex w-full items-center gap-2 rounded-md bg-emerald-700 text-center justify-center uppercase py-1.5 px-3 font-bold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-emerald-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white"
+                >
+                  Learn More
+                </Button>
+              </Link>
+            </div>
+            <Timer pSize={1} textSize="md" />
+          </div> */}
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <Analytics />
+          <SpeedInsights />
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
