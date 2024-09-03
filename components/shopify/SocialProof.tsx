@@ -440,14 +440,15 @@ export let reviews: ReviewType[] = [
   },
 ];
 
-async function SocialProof() {
-  let urls = [];
-  let refs = await listAll(ref(storage, 'testimonialVideos/'));
-  for (const ref of refs.items) {
-    let url = await getDownloadURL(ref);
-    urls.push(url);
-  }
+async function BrianTestimonial() {
+  let videoUrl = await getDownloadURL(
+    ref(storage, 'testimonialVideos/video.mp4')
+  );
 
+  return <CustomVideo url={videoUrl} />;
+}
+
+function SocialProof() {
   let newReviews = [...reviews].map((review, i) => ({
     ...review,
     avatar: review.avatar || faker.image.avatar(),
@@ -455,12 +456,21 @@ async function SocialProof() {
 
   return (
     <div>
-      <Reviews reviews={newReviews} />
-      <div className="flex items-center gap-x-5 container justify-center py-5">
-        {urls.map((url, i) => (
-          <CustomVideo key={i} url={url} />
-        ))}
-      </div>
+      <Suspense
+        fallback={
+          <p className="animate-pulse text-center">loading reviews...</p>
+        }
+      >
+        <Reviews reviews={newReviews} />
+      </Suspense>
+
+      <Suspense
+        fallback={
+          <p className="animate-pulse text-center">loading testomnials...</p>
+        }
+      >
+        <BrianTestimonial />
+      </Suspense>
 
       <div className="w-full h-[700px] bg-[url(https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FIMG_0583.webp?alt=media&token=3fb1870f-6c65-4710-af84-c8087f39dfdc)] bg-cover bg-center bg-no-repeat relative">
         <div className="w-full h-[700px] bg-gradient-to-b from-pink-400/20" />
