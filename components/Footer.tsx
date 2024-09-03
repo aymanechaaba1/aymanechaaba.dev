@@ -36,7 +36,7 @@ function Footer() {
           </Link>
         </div>
         <div className="w-full h-[1px] bg-[rgba(255,255,255,.1)] my-3" />
-        <div className="grid grid-cols-2 my-2 items-center text-gray-400">
+        <div className="grid grid-cols-1 md:grid-cols-2 my-2 items-center text-gray-400">
           <div>
             <Link
               href={`https://wa.link/ygb0ym`}
@@ -48,8 +48,7 @@ function Footer() {
             </Link>
             <p className="">contact@aymanechaaba.dev</p>
           </div>
-
-          <p className="text-right">Rabat, Morocco 🇲🇦</p>
+          <p className="text-left md:text-right">Rabat, Morocco 🇲🇦</p>
         </div>
         <div className="w-full h-[1px] bg-[rgba(255,255,255,.1)] my-3" />
         <div className="space-y-[4px] flex items-center justify-between">
@@ -62,9 +61,7 @@ function Footer() {
               <FaFacebook className="text-gray-400 hover:text-gray-200 transition-colors" />
             </Link>
           </div>
-          <p className="text-sm text-gray-400">
-            {currentYear} ©️ Aymane Shopify
-          </p>
+          <p className="text-sm text-gray-400">{currentYear} ©️ Aymane</p>
         </div>
       </footer>
     </>

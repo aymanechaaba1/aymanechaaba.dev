@@ -9,7 +9,7 @@ import Image from 'next/image';
 import React, { Suspense } from 'react';
 import { BiLogoZoom } from 'react-icons/bi';
 import { SiZoom } from 'react-icons/si';
-import { FaHandPointer } from 'react-icons/fa';
+import { FaHandPointer, FaPlay, FaPlayCircle } from 'react-icons/fa';
 import BookNowBtn from '@/components/shopify/BookNowBtn';
 import BentoCard from '@/components/shopify/BentoCard';
 import { IoIosChatbubbles } from 'react-icons/io';
@@ -25,6 +25,10 @@ import {
   FaMagnifyingGlassDollar,
 } from 'react-icons/fa6';
 import { GiCash } from 'react-icons/gi';
+import { getDownloadURL, listAll, ref } from 'firebase/storage';
+import { storage } from '@/lib/firebase';
+import HeadlessDialog from '@/components/HeadlessDialog';
+import RecordingDialog from '@/components/shopify/RecordingDialog';
 
 let features = [
   {
@@ -97,16 +101,46 @@ let features = [
   },
 ];
 
-function StoreRecordingsLoading() {
+function Recording({ videoUrl }: { videoUrl: string }) {
   return (
-    <div className="flex items-center gap-x-5 mt-5 container overflow-x-scroll overflow-y-hidden snappy">
-      {[...new Array(5)].map((_, i) => (
-        <div
-          key={i}
-          className="rounded-xl dark:bg-gray-900 bg-gray-100 shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.08),_0px_1px_2px_rgb(0_0_0_/_0.5),_0px_2px_4px_rgb(0_0_0_/_0.12),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.32)] w-[250px] h-[350px] animate-pulse shrink-0 snappy"
-        />
-      ))}
-    </div>
+    <video
+      autoPlay
+      controls
+      playsInline
+      loop
+      muted
+      preload="none"
+      width="250"
+      className="w-full h-full rounded-3xl shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.08),_0px_1px_2px_rgb(0_0_0_/_0.5),_0px_2px_4px_rgb(0_0_0_/_0.12),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.32)] snap-center"
+    >
+      <source src={videoUrl} type="video/webm" />
+      <source src={videoUrl} type="video/mp4" />
+      Download the video.
+    </video>
+  );
+}
+
+async function BabyRecording() {
+  let videoUrl = await getDownloadURL(ref(storage, 'recordings/baby.mov'));
+
+  return <Recording videoUrl={videoUrl} />;
+}
+
+async function BushcraftRecording() {
+  let videoUrl = await getDownloadURL(ref(storage, 'recordings/bushcraft.mov'));
+
+  return <Recording videoUrl={videoUrl} />;
+}
+
+async function CosmeticsRecording() {
+  let videoUrl = await getDownloadURL(ref(storage, 'recordings/cosmetics.mov'));
+
+  return <Recording videoUrl={videoUrl} />;
+}
+
+function StoreRecordingSekeleton() {
+  return (
+    <div className="rounded-xl dark:bg-gray-900 bg-gray-100 shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.08),_0px_1px_2px_rgb(0_0_0_/_0.5),_0px_2px_4px_rgb(0_0_0_/_0.12),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.32)] w-[250px] h-[350px] animate-pulse shrink-0 snappy" />
   );
 }
 
@@ -123,21 +157,53 @@ async function ShopifyPage() {
         </span>
       </h1>
       {/* Results */}
-      <Suspense fallback={<StoreRecordingsLoading />}>
-        <StoreRecordings />
-      </Suspense>
+      <div
+        className="flex items-center gap-x-5 mt-5 container overflow-x-scroll overflow-y-hidden snap-x snap-mandatory"
+        dir="ltr"
+      >
+        <div className="relative shrink-0">
+          <Image
+            src={`/recordingsThumbnails/baby.png`}
+            alt=""
+            width={250}
+            height={100}
+            className="object-cover rounded-xl"
+          />
+          <RecordingDialog recording={<BabyRecording />} />
+        </div>
+        <div className="relative shrink-0">
+          <Image
+            src={`/recordingsThumbnails/bushcraft.png`}
+            alt=""
+            width={250}
+            height={100}
+            className="object-cover rounded-xl"
+          />
+          <RecordingDialog recording={<BushcraftRecording />} />
+        </div>
+        <div className="relative shrink-0">
+          <Image
+            src={`/recordingsThumbnails/cosmetics.png`}
+            alt=""
+            width={250}
+            height={100}
+            className="object-cover rounded-xl"
+          />
+          <RecordingDialog recording={<CosmeticsRecording />} />
+        </div>
+      </div>
       {/* <BookNowBtn /> */}
       <div className="container"></div>
       <div className="w-full flex items-center gap-x-5 justify-center my-5 container">
-        <div className="rounded-[9999px] shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.04),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.4),_0px_2px_4px_rgb(0_0_0_/_0.08),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.24)] dark:bg-gray-900 p-5 w-[120px] h-[120px] flex flex-col items-center justify-center text-3xl font-semibold ring ring-teal-500/80">
+        <div className="rounded-[9999px] shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.04),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.4),_0px_2px_4px_rgb(0_0_0_/_0.08),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.24)] dark:bg-gray-900 p-5 w-1/3 md:w-[120px] md:h-[120px] flex flex-col items-center justify-center text-3xl font-semibold ring ring-teal-500/80">
           100
           <p className="text-center text-sm text-gray-400">Performance</p>
         </div>
-        <div className="rounded-[9999px] shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.08),_0px_1px_2px_rgb(0_0_0_/_0.5),_0px_2px_4px_rgb(0_0_0_/_0.12),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.32)] dark:bg-gray-900 p-5 w-[120px] h-[120px] flex flex-col items-center justify-center text-3xl font-semibold ring ring-teal-500">
+        <div className="rounded-[9999px] shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.08),_0px_1px_2px_rgb(0_0_0_/_0.5),_0px_2px_4px_rgb(0_0_0_/_0.12),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.32)] dark:bg-gray-900 p-5 w-1/3 md:w-[120px] md:h-[120px] flex flex-col items-center justify-center text-3xl font-semibold ring ring-teal-500">
           100
           <p className="text-center text-sm text-gray-400 uppercase">SEO</p>
         </div>
-        <div className="rounded-[9999px] shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.08),_0px_1px_2px_rgb(0_0_0_/_0.5),_0px_2px_4px_rgb(0_0_0_/_0.12),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.32)] dark:bg-gray-900 p-5 w-[120px] h-[120px] flex flex-col items-center justify-center text-3xl font-semibold ring ring-teal-500">
+        <div className="rounded-[9999px] shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.08),_0px_1px_2px_rgb(0_0_0_/_0.5),_0px_2px_4px_rgb(0_0_0_/_0.12),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.32)] dark:bg-gray-900 p-5 w-1/3 md:w-[120px] md:h-[120px] flex flex-col items-center justify-center text-3xl font-semibold ring ring-teal-500">
           {'0-2s'}
           <p className="text-center text-sm text-gray-400">Speed</p>
         </div>
@@ -174,7 +240,6 @@ async function ShopifyPage() {
       </div>
       {/* Authority */}
       <Authority />
-
       {/* Reviews, Social Proof */}
       <Suspense fallback={<Loader2 className="animate-spin" />}>
         <SocialProof />
