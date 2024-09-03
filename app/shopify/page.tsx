@@ -147,7 +147,7 @@ function StoreRecordingSekeleton() {
 async function ShopifyPage() {
   return (
     <div className="">
-      <h1 className="text-center text-3xl tracking-tight leading-0 scroll-m-20 font-semibold container">
+      <h1 className="text-center text-3xl tracking-tight leading-0 scroll-m-20 font-semibold container mt-3">
         <span className="bg-gradient-to-r bg-clip-text text-transparent from-teal-300 to-teal-600">
           Successfull
         </span>{' '}
@@ -161,7 +161,7 @@ async function ShopifyPage() {
         className="flex items-center gap-x-5 mt-5 container overflow-x-scroll overflow-y-hidden snap-x snap-mandatory"
         dir="ltr"
       >
-        <div className="relative shrink-0">
+        <div className="relative shrink-0 snap-center">
           <Image
             src={`/recordingsThumbnails/baby.png`}
             alt=""
@@ -171,7 +171,7 @@ async function ShopifyPage() {
           />
           <RecordingDialog recording={<BabyRecording />} />
         </div>
-        <div className="relative shrink-0">
+        <div className="relative shrink-0 snap-center">
           <Image
             src={`/recordingsThumbnails/bushcraft.png`}
             alt=""
@@ -181,7 +181,7 @@ async function ShopifyPage() {
           />
           <RecordingDialog recording={<BushcraftRecording />} />
         </div>
-        <div className="relative shrink-0">
+        <div className="relative shrink-0 snap-center">
           <Image
             src={`/recordingsThumbnails/cosmetics.png`}
             alt=""
@@ -194,18 +194,18 @@ async function ShopifyPage() {
       </div>
       {/* <BookNowBtn /> */}
       <div className="container"></div>
-      <div className="w-full flex items-center gap-x-5 justify-center my-5 container">
-        <div className="rounded-[9999px] shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.04),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.4),_0px_2px_4px_rgb(0_0_0_/_0.08),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.24)] dark:bg-gray-900 p-5 w-1/3 md:w-[120px] md:h-[120px] flex flex-col items-center justify-center text-3xl font-semibold ring ring-teal-500/80">
+      <div className="flex items-center gap-x-5 justify-center my-5 px-10">
+        <div className="shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.04),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.4),_0px_2px_4px_rgb(0_0_0_/_0.08),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.24)] dark:bg-gray-900 flex flex-col items-center justify-center font-semibold ring ring-teal-500/80 shrink-0 w-[120px] h-[120px] text-center py-5 text-3xl rounded-lg">
           100
-          <p className="text-center text-sm text-gray-400">Performance</p>
+          <p className="text-center text-[.7rem] text-gray-400">Performance</p>
         </div>
-        <div className="rounded-[9999px] shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.08),_0px_1px_2px_rgb(0_0_0_/_0.5),_0px_2px_4px_rgb(0_0_0_/_0.12),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.32)] dark:bg-gray-900 p-5 w-1/3 md:w-[120px] md:h-[120px] flex flex-col items-center justify-center text-3xl font-semibold ring ring-teal-500">
+        <div className="shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.08),_0px_1px_2px_rgb(0_0_0_/_0.5),_0px_2px_4px_rgb(0_0_0_/_0.12),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.32)] dark:bg-gray-900 w-[120px] h-[120px] flex flex-col items-center justify-center font-semibold ring ring-teal-500 shrink-0 text-3xl py-5 rounded-lg gap-1">
           100
           <p className="text-center text-sm text-gray-400 uppercase">SEO</p>
         </div>
-        <div className="rounded-[9999px] shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.08),_0px_1px_2px_rgb(0_0_0_/_0.5),_0px_2px_4px_rgb(0_0_0_/_0.12),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.32)] dark:bg-gray-900 p-5 w-1/3 md:w-[120px] md:h-[120px] flex flex-col items-center justify-center text-3xl font-semibold ring ring-teal-500">
+        <div className="shadow-[inset_0px_1px_0px_rgb(255_255_255_/_0.08),_inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.02),_0px_1px_2px_rgb(0_0_0_/_0.1),_0px_2px_4px_rgb(0_0_0_/_0.04),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.04)] dark:shadow-[inset_0px_0px_0px_0.5px_rgb(255_255_255_/_0.08),_0px_1px_2px_rgb(0_0_0_/_0.5),_0px_2px_4px_rgb(0_0_0_/_0.12),_0px_0px_0px_0.5px_rgb(0_0_0_/_0.32)] dark:bg-gray-900 w-[120px] flex flex-col items-center justify-center font-semibold ring ring-teal-500 shrink-0 py-5 text-3xl h-[120px] rounded-lg gap-1">
           {'0-2s'}
-          <p className="text-center text-sm text-gray-400">Speed</p>
+          <p className="text-center text-sm text-gray-400">speed</p>
         </div>
       </div>
       <FeaturesSection />
@@ -241,9 +241,7 @@ async function ShopifyPage() {
       {/* Authority */}
       <Authority />
       {/* Reviews, Social Proof */}
-      <Suspense fallback={<Loader2 className="animate-spin" />}>
-        <SocialProof />
-      </Suspense>
+      <SocialProof />
       <div className="flex items-center gap-x-5 overflow-x-scroll container snap-x snap-mandatory mt-5 mb-4">
         {features.map((f, i) => (
           <BentoCard key={i} f={f} />

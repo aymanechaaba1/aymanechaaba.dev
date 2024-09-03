@@ -3,16 +3,16 @@ import React from 'react';
 
 function Authority() {
   return (
-    <div className="relative min-h-[700px]">
+    <div className="relative min-h-[700px] md:min-h-[500px] md:max-w-[700px] mx-auto">
       <Image
         src="/photo.jpg"
-        width={1920}
-        height={1080}
-        className="object-cover w-full mt-5"
+        width={500}
+        height={300}
+        className="object-cover w-full md:w-1/2 md:float-right md:h-[500px] mx-auto"
         alt=""
       />
-      <div className="flex justify-center">
-        <div className="w-[450px] mx-auto min-h-[300px] bg-white/70 dark:bg-black/50 rounded-sm backdrop-blur-xl absolute top-[250px] dark:text-white p-5">
+      <div className="flex justify-center container">
+        <div className="w-[400px] mx-auto min-h-[300px] bg-white/70 dark:bg-black/50 rounded-sm backdrop-blur-xl absolute top-[240px] md:top-1/2  md:-translate-y-1/2 md:right-[45%] dark:text-white p-5">
           <h3 className="font-semibold text-xl mb-1">
             I&apos;M AYMANE CHAABA. 💯
           </h3>
