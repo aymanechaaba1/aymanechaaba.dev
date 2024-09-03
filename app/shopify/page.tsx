@@ -147,7 +147,7 @@ function StoreRecordingSekeleton() {
 async function ShopifyPage() {
   return (
     <div className="">
-      <h1 className="text-center text-3xl tracking-tight leading-0 scroll-m-20 font-semibold container">
+      <h1 className="text-center text-3xl tracking-tight leading-0 scroll-m-20 font-semibold container mt-3">
         <span className="bg-gradient-to-r bg-clip-text text-transparent from-teal-300 to-teal-600">
           Successfull
         </span>{' '}

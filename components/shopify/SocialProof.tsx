@@ -473,14 +473,14 @@ function SocialProof() {
       </Suspense>
 
       <div className="w-full h-[700px] bg-[url(https://firebasestorage.googleapis.com/v0/b/portfolio-fec6a.appspot.com/o/testimonials%2FIMG_0583.webp?alt=media&token=3fb1870f-6c65-4710-af84-c8087f39dfdc)] bg-cover bg-center bg-no-repeat relative">
-        <div className="w-full h-[700px] bg-gradient-to-b from-pink-400/20" />
-        <h1 className="text-3xl text-white font-semibold tracking-tight text-center mt-6 text-shadow drop-shadow-xl absolute top-0 px-4">
+        <div className="w-full h-[700px] bg-gradient-to-t from-pink-400/20" />
+        <h1 className="text-3xl md:text-5xl md:max-w-[500px] mx-auto text-white font-semibold tracking-tight text-center mt-6 text-shadow drop-shadow-xl absolute bottom-5 left-1/2 -translate-x-1/2 px-4">
           &quot;My Sales skyrocket 🚀 after Aymane&apos;s Changes&quot;{' '}
           <span>
             - Savannah, CEO of{' '}
             <a
               href="https://shophoneyjade.com.au/"
-              className="underline text-transparent bg-clip-text bg-gradient-to-r from-pink-100 to-pink-200 border-b-[3px] border-pink-200"
+              className="underline text-white"
             >
               shophoneyjade.com.au
             </a>

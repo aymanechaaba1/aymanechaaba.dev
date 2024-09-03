@@ -14,7 +14,7 @@ const StyledCard = styled.div`
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  width: 100%;
+  width: 300px;
   transition-property: transform;
 
   &::before {
