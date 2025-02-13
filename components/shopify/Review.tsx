@@ -14,6 +14,7 @@ export type ReviewType = {
   role: string;
   instaUsername?: string;
   videoUrl?: string;
+  country: string;
 };
 function Review(props: { review: ReviewType }) {
   return (

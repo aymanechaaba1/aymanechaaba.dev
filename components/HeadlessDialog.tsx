@@ -9,7 +9,9 @@ import {
   Transition,
   TransitionChild,
 } from '@headlessui/react';
+import { X } from 'lucide-react';
 import { Dispatch, type ReactNode, SetStateAction, useState } from 'react';
+import { FaX } from 'react-icons/fa6';
 
 function HeadlessDialog({
   buttonLabel,
@@ -17,16 +19,20 @@ function HeadlessDialog({
   dialogTitle,
   children,
   className,
+  panelClassName,
   isOpen,
   setIsOpen,
+  closeIconClassName,
 }: {
   buttonLabel: string | ReactNode;
   dialogTitle?: string;
   children: Readonly<ReactNode>;
   buttonClassName?: string;
   className?: string;
+  panelClassName?: string;
   isOpen: boolean | false;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
+  closeIconClassName?: string;
 }) {
   return (
     <>
@@ -40,13 +46,13 @@ function HeadlessDialog({
       <Transition appear show={isOpen}>
         <Dialog
           as="div"
-          className="relative z-10 focus:outline-none"
+          className="relative z-20 focus:outline-none"
           open={isOpen}
           onClose={() => setIsOpen(false)}
         >
           <div
             className={cn(
-              'fixed inset-0 z-50 backdrop-blur-lg dark:bg-zinc-900/30 opacity-100'
+              'fixed inset-0 m-auto z-50 backdrop-blur-md dark:bg-zinc-900/30 opacity-100'
             )}
           >
             <div
@@ -55,6 +61,14 @@ function HeadlessDialog({
                 className
               )}
             >
+              <X
+                className={cn(
+                  'absolute top-5 right-5 opacity-80 cursor-pointer z-30',
+                  closeIconClassName
+                )}
+                onClick={() => setIsOpen(false)}
+                size={30}
+              />
               <TransitionChild
                 enter="ease-out duration-300"
                 enterFrom="opacity-0 transform-[scale(95%)]"
@@ -63,7 +77,7 @@ function HeadlessDialog({
                 leaveFrom="opacity-100 transform-[scale(100%)]"
                 leaveTo="opacity-0 transform-[scale(95%)]"
               >
-                <DialogPanel className="bg-transparent">
+                <DialogPanel className={cn('bg-transparent', panelClassName)}>
                   <DialogTitle
                     as="h3"
                     className="text-sm font-medium text-zinc-600 dark:text-zinc-400"

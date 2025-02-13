@@ -28,6 +28,9 @@ const nextConfig = {
       { hostname: 'ticketr-pink.vercel.app' },
     ],
   },
+  compiler: {
+    styledComponents: true,
+  },
   transpilePackages: ['next-mdx-remote', 'react-tweet'],
   reactStrictMode: true,
 };

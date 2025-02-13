@@ -109,11 +109,11 @@ function PrivacyPage() {
           <p>
             <strong>Website</strong> refers to Aymane Shopify, accessible from{' '}
             <a
-              href="http://localhost:3000"
+              href="https://aymanechaaba.dev"
               rel="external nofollow noopener"
               target="_blank"
             >
-              http://localhost:3000
+              https://aymanechaaba.dev
             </a>
           </p>
         </li>
@@ -511,12 +511,12 @@ function PrivacyPage() {
         <li>
           By visiting this page on our website:{' '}
           <a
-            href="http://localhost:3000/shopify/contact"
+            href="https://aymanechaaba.dev/shopify/contact"
             rel="external nofollow noopener"
             target="_blank"
             className="text-blue-400"
           >
-            http://localhost:3000/shopify/contact
+            https://aymanechaaba.dev/shopify/contact
           </a>
         </li>
       </ul>
