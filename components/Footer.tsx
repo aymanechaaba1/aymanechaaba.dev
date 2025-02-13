@@ -4,11 +4,10 @@ import TwitterIcon from './icons/TwitterIcon';
 import { Separator } from './ui/separator';
 import { LuExternalLink } from 'react-icons/lu';
 import { FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa';
+import CurrentYear from './CurrentYear';
 
 const GITHUB_URL = `https://github.com/aymanechaaba1`;
 const TWITTER_URL = `https://twitter.com/aymanedev`;
-
-const currentYear = new Date().getFullYear();
 
 function Footer() {
   return (
@@ -62,7 +61,7 @@ function Footer() {
             </Link>
           </div>
           <p className="text-sm text-gray-400">
-            {currentYear} ©️ Aymane Shopify
+            <CurrentYear /> ©️ Aymane Shopify
           </p>
         </div>
       </footer>
