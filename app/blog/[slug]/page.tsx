@@ -16,9 +16,10 @@ import { cookies } from 'next/headers';
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata | undefined> {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  const slug = (await params).slug;
+  let post = getBlogPosts().find((post) => post.slug === slug);
   if (!post) return;
 
   let {
@@ -87,8 +88,13 @@ function formatDate(date: string) {
   }
 }
 
-export default async function Blog({ params }: { params: { slug: string } }) {
-  let post = getBlogPosts().find((post: any) => post.slug === params.slug);
+export default async function Blog({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const slug = (await params).slug;
+  let post = getBlogPosts().find((post: any) => post.slug === slug);
 
   if (!post) notFound();
 
@@ -131,7 +137,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
         <Suspense
           fallback={<Loader2 className="animate-spin text-zin-500" size={15} />}
         >
-          <Views slug={params.slug} />
+          <Views slug={slug} />
         </Suspense>
       </div>
       <article className="prose prose-zinc dark:prose-invert prose-pre:bg-zinc-100 dark:prose-pre:!bg-zinc-900 prose-pre:rounded-t-none">

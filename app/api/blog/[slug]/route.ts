@@ -7,11 +7,16 @@ import { NextResponse, type NextRequest } from 'next/server';
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { slug: string } }
+  {
+    params,
+  }: {
+    params: Promise<{ slug: string }>;
+  }
 ) {
-  let views = await getViews({ slug: params.slug });
+  const slug = (await params).slug;
+  let views = await getViews({ slug });
 
-  const viewsRef = doc(db, 'posts', params.slug);
+  const viewsRef = doc(db, 'posts', slug);
 
   await updateDoc(viewsRef, {
     views: views + 1,

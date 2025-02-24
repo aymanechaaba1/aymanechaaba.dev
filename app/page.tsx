@@ -5,6 +5,9 @@ import Services from '@/components/Services';
 import TechStack from '@/components/TechStack';
 import Testimonials from '@/components/Testimonials';
 
+export const experimental_ppr = true;
+export const dynamic = 'force-static';
+
 function HomePage() {
   return (
     <>
@@ -14,7 +17,7 @@ function HomePage() {
         <Projects />
         <div className="grid grid-cols-1 md:grid-cols-2 items-center mt-10">
           <Services />
-          <Testimonials />
+          {/* <Testimonials /> */}
         </div>
 
         <ContactForm />

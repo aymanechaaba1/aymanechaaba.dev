@@ -33,6 +33,9 @@ const nextConfig = {
   },
   transpilePackages: ['next-mdx-remote', 'react-tweet'],
   reactStrictMode: true,
+  experimental: {
+    ppr: 'incremental',
+  },
 };
 
 export default nextConfig;

@@ -2,11 +2,11 @@ import Timer from '@/components/Timer';
 import Image from 'next/image';
 import React from 'react';
 import { Button } from '@headlessui/react';
-import ChallengeDialog from '@/components/challenge/Dialog';
 import { Calendar } from 'lucide-react';
 import FAQ, { Faq } from '@/components/FAQ';
 import Schedule from '@/components/challenge/Schedule';
 import Reviews, { Review } from '@/components/challenge/Reviews';
+import ChallengeDialog from '@/components/challenge/ChallengeDialog';
 
 let schedule = [
   {
