@@ -3,7 +3,7 @@ import GithubIcon from './icons/GithubIcon';
 import TwitterIcon from './icons/TwitterIcon';
 import { Separator } from './ui/separator';
 import { LuExternalLink } from 'react-icons/lu';
-import { FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaTwitter, FaWhatsapp } from 'react-icons/fa';
 import CurrentYear from './CurrentYear';
 
 const GITHUB_URL = `https://github.com/aymanechaaba1`;
