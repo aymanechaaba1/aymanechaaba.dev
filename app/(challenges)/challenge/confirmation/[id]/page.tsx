@@ -5,10 +5,12 @@ import { redirect } from 'next/navigation';
 import React from 'react';
 
 async function ConfirmationPage({
-  params: { id },
+  params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
+
   return (
     <div>
       <h1 className="text-center text-2xl font-semibold">

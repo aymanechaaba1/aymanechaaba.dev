@@ -11,6 +11,7 @@ import { Button } from '@headlessui/react';
 import * as z from 'zod';
 import { secureSeat } from '@/actions/secureSeat';
 import { X } from 'lucide-react';
+import Form from 'next/form';
 
 function ChallengeDialog({ buttonLabel }: { buttonLabel: ReactNode }) {
   let [isOpen, setIsOpen] = React.useState(false);
@@ -44,7 +45,7 @@ function ChallengeDialog({ buttonLabel }: { buttonLabel: ReactNode }) {
       <p className="text-center">
         (Hurry... The doors close after the first 1000 signups)
       </p>
-      <form action={secureSeat} className="mx-auto py-5 px-10">
+      {/* <Form action={secureSeat} className="mx-auto py-5 px-10">
         <Input
           className={clsx(
             'mt-3 block w-full rounded-lg border-none bg-black/10 placeholder:font-semibold placeholder:text-lg dark:bg-white/5 py-2 px-3 text-sm/6 text-white',
@@ -72,7 +73,7 @@ function ChallengeDialog({ buttonLabel }: { buttonLabel: ReactNode }) {
         >
           Secure my Seat
         </Button>
-      </form>
+      </Form> */}
     </HeadlessDialog>
   );
 }

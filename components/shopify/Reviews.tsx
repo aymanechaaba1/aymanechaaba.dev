@@ -3,7 +3,7 @@
 import React from 'react';
 import { ReviewType } from './Review';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 function Reviews({ reviews }: { reviews: ReviewType[] }) {
   return (

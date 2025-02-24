@@ -8,11 +8,12 @@ import React, {
 } from 'react';
 
 type RefProviderContext = {
-  ref: RefObject<HTMLElement> | null;
+  ref: RefObject<HTMLDivElement | null> | null;
   updateElement?: (newElement: HTMLElement) => void;
 };
 const RefContext = createContext<RefProviderContext>({
   ref: null,
+  updateElement: () => {},
 });
 
 export const RefProvider = ({

@@ -13,7 +13,14 @@ import {
 import { cn, formatBudget, formatLastBudget } from '@/lib/utils';
 import { Textarea } from './ui/textarea';
 import { useFormState, useFormStatus } from 'react-dom';
-import { ElementType, LegacyRef, forwardRef, useEffect, useRef } from 'react';
+import {
+  ElementType,
+  LegacyRef,
+  forwardRef,
+  useActionState,
+  useEffect,
+  useRef,
+} from 'react';
 import { toast } from 'sonner';
 import { submitForm } from '@/actions/submitForm';
 import { Button as HeadlessBtn, Field, Input } from '@headlessui/react';
@@ -45,7 +52,7 @@ function SendButton() {
 }
 
 function ContactForm() {
-  const [state, formAction] = useFormState(submitForm, null);
+  const [state, formAction] = useActionState(submitForm, null);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {

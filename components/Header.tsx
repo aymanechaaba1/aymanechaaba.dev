@@ -1,7 +1,6 @@
 import { LOGO_URL } from '@/config';
 import Logo from './Logo';
 import Navbar from './Navbar';
-import HeadlessDialog from './HeadlessDialog';
 import { ToggleDarkMode } from './ToggleDarkMode';
 import Link from 'next/link';
 import NavLinks from './NavLinks';

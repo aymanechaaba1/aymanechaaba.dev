@@ -1,7 +1,6 @@
 import { Testimonial as T } from '@/types';
 import { v4 as uuidv4 } from 'uuid';
 import Testimonial from './Testimonial';
-import { TestimonialsStack } from './ui/TestimonialsStack';
 import VideoWrapper from './VideoWrapper';
 import Video from './Video';
 import { BRIAN_VIDEO } from '@/config';
