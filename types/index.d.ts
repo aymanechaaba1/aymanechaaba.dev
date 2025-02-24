@@ -23,7 +23,14 @@ type Stack = {
     | 'vercel'
     | 'drizzle'
     | 'prisma'
-    | 'mdx';
+    | 'mdx'
+    | 'sanity'
+    | 'zustand'
+    | 'clerk'
+    | 'convex'
+    | 'stripe'
+    | 'langchain'
+    | 'anthropic';
   icon: ReactNode;
 };
 
@@ -31,7 +38,12 @@ export type Project = {
   id: string;
   name: string;
   description: string;
-  logo?: string | ReactNode;
+  logo?: {
+    url?: string;
+    name?: string;
+    className?: string;
+    svg?: ReactNode;
+  };
   thumbnail: string;
   stack: Stack[];
   repo: string;

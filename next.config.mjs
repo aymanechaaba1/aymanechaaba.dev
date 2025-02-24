@@ -24,6 +24,8 @@ const nextConfig = {
       { hostname: 'cdn.buymeacoffee.com' },
       { hostname: 'cdn.prod.website-files.com' },
       { hostname: 'yt3.ggpht.com' },
+      { hostname: 'yc-directory-woad.vercel.app' },
+      { hostname: 'ticketr-pink.vercel.app' },
     ],
   },
   compiler: {

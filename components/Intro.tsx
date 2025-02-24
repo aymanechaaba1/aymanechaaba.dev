@@ -1,6 +1,7 @@
 import { getAge } from '@/lib/utils';
 import React from 'react';
 import IntroSpeech from './IntroSpeech';
+import Age from './Age';
 
 function Intro() {
   return (
@@ -15,7 +16,7 @@ function Intro() {
       <p className="dark:text-zinc-300 text-zinc-700 tracking-tighter text-center text-sm md:text-base">
         <span>from</span> <span className="">Morocco ♥️🇲🇦</span>
         {' | '}
-        <span>{getAge(1999)} yo.</span>
+        <Age />
       </p>
     </div>
   );
